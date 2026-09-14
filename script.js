@@ -9,17 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll("nav a");
     const sections = document.querySelectorAll("section[id]");
     const revealElements = document.querySelectorAll(".reveal");
+    const businessCards = document.querySelectorAll(".business-card");
+
 
     /* =========================================
        HEADER AL HACER SCROLL
        ========================================= */
 
     function updateHeader() {
+
         if (window.scrollY > 40) {
             header.classList.add("scrolled");
         } else {
             header.classList.remove("scrolled");
         }
+
     }
 
     window.addEventListener("scroll", updateHeader);
@@ -44,10 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.scrollY >= sectionTop &&
                 window.scrollY < sectionTop + sectionHeight
             ) {
+
                 currentSection = section.getAttribute("id");
+
             }
 
         });
+
 
         navLinks.forEach(link => {
 
@@ -56,10 +63,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const target = link.getAttribute("href");
 
             if (target === `#${currentSection}`) {
+
                 link.classList.add("active");
+
             }
 
         });
+
     }
 
     window.addEventListener("scroll", updateActiveSection);
@@ -92,13 +102,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
+
     revealElements.forEach(element => {
+
         observer.observe(element);
+
     });
 
 
     /* =========================================
-       CLICS DEL MENÚ
+       MENÚ SUAVE
        ========================================= */
 
     navLinks.forEach(link => {
@@ -123,6 +136,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "smooth",
                 block: "start"
             });
+
+        });
+
+    });
+
+
+    /* =========================================
+       TARJETAS INTERACTIVAS
+       ========================================= */
+
+    businessCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            businessCards.forEach(otherCard => {
+
+                if (otherCard !== card) {
+                    otherCard.classList.remove("selected");
+                }
+
+            });
+
+            card.classList.toggle("selected");
 
         });
 
