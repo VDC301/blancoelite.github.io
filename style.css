@@ -5,25 +5,31 @@
 
 :root {
     --black: #05080d;
-    --deep-blue: #0b1628;
-    --blue: #10243d;
+    --black-soft: #0a0f18;
+
+    --deep-blue: #081426;
+    --blue: #0d2340;
+    --blue-mid: #12345a;
+    --blue-light: #174b7a;
 
     --gold: #c8a24a;
-    --gold-light: #e1c56b;
-    --gold-dark: #9b7929;
+    --gold-light: #e4c96b;
+    --gold-dark: #987528;
+    --gold-soft: #f3e6bd;
 
     --white: #ffffff;
-    --light: #f7f8fa;
-    --soft: #eef1f5;
+    --light: #f5f6f8;
+    --soft: #e9edf2;
 
     --gray: #667085;
     --dark-gray: #344054;
 
     --border: rgba(15, 23, 42, 0.10);
+    --gold-border: rgba(200, 162, 74, 0.35);
     --dark-border: rgba(255, 255, 255, 0.12);
 
-    --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-    --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.25);
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.10);
+    --shadow-dark: 0 25px 70px rgba(0, 0, 0, 0.30);
 
     --header-height: 94px;
     --container: 1280px;
@@ -99,13 +105,20 @@ a {
     width: 100%;
     z-index: 1000;
 
-    background: rgba(5, 8, 13, 0.94);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 8, 13, 0.98),
+            rgba(8, 20, 38, 0.97),
+            rgba(5, 8, 13, 0.98)
+        );
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 
     border-bottom:
-        1px solid rgba(200, 162, 74, 0.30);
+        1px solid
+        rgba(200, 162, 74, 0.35);
 
     transition:
         background 0.3s ease,
@@ -113,10 +126,12 @@ a {
 }
 
 .site-header.scrolled {
-    background: rgba(5, 8, 13, 0.98);
+    background:
+        rgba(5, 8, 13, 0.99);
 
     box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.30);
+        0 12px 40px
+        rgba(0, 0, 0, 0.35);
 }
 
 .header-container {
@@ -174,7 +189,8 @@ a {
 .main-nav a {
     position: relative;
 
-    color: rgba(255, 255, 255, 0.78);
+    color:
+        rgba(255, 255, 255, 0.78);
 
     font-size: 0.94rem;
     font-weight: 650;
@@ -183,7 +199,8 @@ a {
 
     padding: 8px 0;
 
-    transition: color 0.25s ease;
+    transition:
+        color 0.25s ease;
 }
 
 .main-nav a::after {
@@ -197,9 +214,15 @@ a {
     width: 0;
     height: 2px;
 
-    background: var(--gold);
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
 
-    transition: width 0.25s ease;
+    transition:
+        width 0.25s ease;
 }
 
 .main-nav a:hover,
@@ -223,7 +246,8 @@ a {
     height: 46px;
 
     border:
-        1px solid rgba(200, 162, 74, 0.45);
+        1px solid
+        rgba(200, 162, 74, 0.45);
 
     background: transparent;
 
@@ -292,7 +316,8 @@ a {
         linear-gradient(
             135deg,
             var(--black),
-            var(--deep-blue)
+            var(--deep-blue) 55%,
+            var(--blue)
         );
 
     color: var(--white);
@@ -304,7 +329,13 @@ a {
 }
 
 .section-soft {
-    background: var(--light);
+    background:
+        linear-gradient(
+            180deg,
+            #f8f9fb,
+            #eef2f6
+        );
+
     color: var(--black);
 }
 
@@ -335,7 +366,7 @@ a {
 .section-label {
     display: block;
 
-    color: var(--black);
+    color: var(--gold-dark);
 
     font-size: 0.78rem;
     font-weight: 850;
@@ -382,7 +413,8 @@ a {
 }
 
 .section-dark .section-heading p {
-    color: rgba(255, 255, 255, 0.68);
+    color:
+        rgba(255, 255, 255, 0.68);
 }
 
 
@@ -407,15 +439,20 @@ a {
 
     background:
         radial-gradient(
-            circle at 75% 30%,
-            rgba(200, 162, 74, 0.13),
-            transparent 35%
+            circle at 76% 28%,
+            rgba(200, 162, 74, 0.18),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(23, 75, 122, 0.32),
+            transparent 30%
         ),
         linear-gradient(
             135deg,
-            #030507,
-            #0b1628 65%,
-            #10243d
+            #030507 0%,
+            #071426 48%,
+            #12345a 100%
         );
 
     color: var(--white);
@@ -431,9 +468,9 @@ a {
     background:
         linear-gradient(
             90deg,
-            rgba(5, 8, 13, 0.92),
+            rgba(5, 8, 13, 0.95),
             rgba(5, 8, 13, 0.48),
-            rgba(5, 8, 13, 0.78)
+            rgba(5, 8, 13, 0.66)
         );
 
     pointer-events: none;
@@ -444,23 +481,23 @@ a {
 
     position: absolute;
 
-    width: 520px;
-    height: 520px;
+    width: 560px;
+    height: 560px;
 
-    right: -180px;
-    bottom: -220px;
+    right: -190px;
+    bottom: -230px;
 
     border-radius: 50%;
 
     border:
         1px solid
-        rgba(200, 162, 74, 0.20);
+        rgba(200, 162, 74, 0.28);
 
     box-shadow:
         0 0 0 80px
-        rgba(200, 162, 74, 0.025),
+        rgba(200, 162, 74, 0.035),
         0 0 0 160px
-        rgba(200, 162, 74, 0.018);
+        rgba(23, 75, 122, 0.035);
 }
 
 .hero-inner {
@@ -513,7 +550,8 @@ a {
 
     margin-top: 32px;
 
-    color: rgba(255, 255, 255, 0.72);
+    color:
+        rgba(255, 255, 255, 0.74);
 
     font-size:
         clamp(
@@ -593,7 +631,43 @@ a {
    ECOSISTEMA
    ========================================================= */
 
+#ecosistema {
+    background:
+        linear-gradient(
+            135deg,
+            #f4f6f9 0%,
+            #e8eef5 48%,
+            #f8f9fb 100%
+        );
+
+    position: relative;
+}
+
+#ecosistema::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 35%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(18, 52, 90, 0.05),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
 .business-grid {
+    position: relative;
+    z-index: 2;
+
     display: grid;
 
     grid-template-columns:
@@ -607,14 +681,22 @@ a {
 
     padding: 38px;
 
-    background: var(--white);
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7f9fb
+        );
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(18, 52, 90, 0.12);
 
     box-shadow:
         0 12px 35px
-        rgba(0, 0, 0, 0.045);
+        rgba(8, 20, 38, 0.07);
+
+    overflow: hidden;
 
     transition:
         transform 0.3s ease,
@@ -622,18 +704,49 @@ a {
         box-shadow 0.3s ease;
 }
 
+.business-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--gold-light),
+            var(--gold-dark)
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+.business-card:hover::before,
+.business-card.selected::before {
+    opacity: 1;
+}
+
 .business-card:hover,
 .business-card.selected {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 
     border-color:
-        rgba(200, 162, 74, 0.50);
+        rgba(200, 162, 74, 0.55);
 
-    box-shadow: var(--shadow);
+    box-shadow:
+        0 20px 50px
+        rgba(8, 20, 38, 0.13);
 }
 
 .business-number {
-    color: var(--gold);
+    color: var(--gold-dark);
 
     font-size: 0.75rem;
     font-weight: 900;
@@ -670,7 +783,7 @@ a {
 
     background: transparent;
 
-    color: var(--black);
+    color: var(--blue);
 
     display: inline-flex;
     align-items: center;
@@ -687,7 +800,7 @@ a {
 }
 
 .business-button span {
-    color: var(--gold);
+    color: var(--gold-dark);
 
     display: inline-block;
 
@@ -697,7 +810,8 @@ a {
 
 .business-card.selected
 .business-button span {
-    transform: rotate(180deg);
+    transform:
+        rotate(180deg);
 }
 
 .business-details {
@@ -727,7 +841,8 @@ a {
     padding-top: 18px;
 
     border-top:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 }
 
 .details-link {
@@ -737,7 +852,7 @@ a {
 
     gap: 8px;
 
-    color: var(--black);
+    color: var(--blue);
 
     font-size: 0.9rem;
 
@@ -749,20 +864,79 @@ a {
 }
 
 .details-link span {
-    color: var(--gold);
+    color: var(--gold-dark);
 
     transition:
         transform 0.2s ease;
 }
 
 .details-link:hover span {
-    transform: translateX(4px);
+    transform:
+        translateX(4px);
 }
 
 
 /* =========================================================
    NUESTRA VISIÓN
    ========================================================= */
+
+#vision {
+    background:
+        linear-gradient(
+            135deg,
+            #071221 0%,
+            #0c1d33 50%,
+            #12345a 100%
+        );
+
+    color: var(--white);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+#vision::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -180px;
+    top: -180px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(200, 162, 74, 0.15);
+
+    box-shadow:
+        0 0 0 70px
+        rgba(200, 162, 74, 0.025),
+        0 0 0 140px
+        rgba(200, 162, 74, 0.018);
+}
+
+#vision .section-inner {
+    position: relative;
+    z-index: 2;
+}
+
+#vision .section-label {
+    color: var(--gold-light);
+}
+
+#vision .section-heading h2 {
+    color: var(--white);
+}
+
+#vision .section-heading p {
+    color:
+        rgba(255, 255, 255, 0.68);
+}
 
 .vision-grid {
     display: grid;
@@ -781,13 +955,13 @@ a {
     background:
         linear-gradient(
             145deg,
-            #0a1220,
-            #10243d
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.025)
         );
 
     border:
         1px solid
-        rgba(200, 162, 74, 0.18);
+        rgba(200, 162, 74, 0.22);
 
     display: flex;
 
@@ -795,20 +969,32 @@ a {
 
     justify-content: space-between;
 
+    backdrop-filter:
+        blur(8px);
+
     transition:
         transform 0.3s ease,
-        border-color 0.3s ease;
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
 .vision-card:hover {
-    transform: translateY(-6px);
+    transform:
+        translateY(-7px);
 
     border-color:
-        rgba(200, 162, 74, 0.55);
+        rgba(200, 162, 74, 0.70);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(200, 162, 74, 0.13),
+            rgba(255, 255, 255, 0.04)
+        );
 }
 
 .vision-number {
-    color: var(--gold);
+    color: var(--gold-light);
 
     font-size: 0.75rem;
     font-weight: 900;
@@ -825,7 +1011,8 @@ a {
 }
 
 .vision-card p {
-    color: rgba(255, 255, 255, 0.67);
+    color:
+        rgba(255, 255, 255, 0.67);
 
     line-height: 1.7;
 }
@@ -836,7 +1023,13 @@ a {
    ========================================================= */
 
 #tiempo {
-    background: var(--light);
+    background:
+        linear-gradient(
+            180deg,
+            #f8f9fb 0%,
+            #eef2f6 100%
+        );
+
     color: var(--black);
 
     overflow: hidden;
@@ -884,18 +1077,19 @@ a {
     left: 5%;
     right: 5%;
 
-    height: 1px;
+    height: 2px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            var(--gold),
-            var(--gold),
+            var(--gold-dark),
+            var(--gold-light),
+            var(--gold-dark),
             transparent
         );
 
-    opacity: 0.65;
+    opacity: 0.75;
 }
 
 .timeline-item {
@@ -913,19 +1107,25 @@ a {
 
     position: absolute;
 
-    top: 11px;
+    top: 10px;
     left: 50%;
 
-    width: 13px;
-    height: 13px;
+    width: 14px;
+    height: 14px;
 
     transform:
         translateX(-50%);
 
-    background: var(--white);
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold-dark)
+        );
 
     border:
-        3px solid var(--gold);
+        3px solid
+        var(--white);
 
     border-radius: 50%;
 
@@ -933,7 +1133,7 @@ a {
 
     box-shadow:
         0 0 0 6px
-        rgba(200, 162, 74, 0.08);
+        rgba(200, 162, 74, 0.12);
 }
 
 .timeline-number {
@@ -985,8 +1185,8 @@ a {
     padding-top: 70px;
 
     border-top:
-        1px solid
-        rgba(15, 23, 42, 0.10);
+        2px solid
+        rgba(200, 162, 74, 0.22);
 }
 
 .future-heading {
@@ -1041,14 +1241,22 @@ a {
 
     padding: 30px;
 
-    background: var(--white);
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(18, 52, 90, 0.11);
 
     box-shadow:
         0 10px 30px
-        rgba(0, 0, 0, 0.04);
+        rgba(8, 20, 38, 0.055);
+
+    overflow: hidden;
 
     transition:
         transform 0.3s ease,
@@ -1056,17 +1264,50 @@ a {
         box-shadow 0.3s ease;
 }
 
+.future-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin: left;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.future-card:hover::after {
+    transform:
+        scaleX(1);
+}
+
 .future-card:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 
     border-color:
-        rgba(200, 162, 74, 0.50);
+        rgba(200, 162, 74, 0.55);
 
     box-shadow: var(--shadow);
 }
 
 .future-card-number {
-    color: var(--gold);
+    color: var(--gold-dark);
 
     font-size: 0.75rem;
 
@@ -1104,16 +1345,43 @@ a {
     position: relative;
 
     background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(200, 162, 74, 0.12),
+            transparent 35%
+        ),
         linear-gradient(
             135deg,
-            #05080d,
-            #0b1628
+            #04070b,
+            #081426 55%,
+            #0d2340
         );
 
     color: var(--white);
 
     padding:
         150px 30px;
+
+    overflow: hidden;
+}
+
+.legacy::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(200, 162, 74, 0.20),
+            transparent
+        );
 }
 
 .legacy-inner {
@@ -1122,6 +1390,9 @@ a {
     margin: 0 auto;
 
     text-align: center;
+
+    position: relative;
+    z-index: 2;
 }
 
 .legacy .section-label {
@@ -1168,6 +1439,15 @@ a {
    PROYECTOS
    ========================================================= */
 
+#proyectos {
+    background:
+        linear-gradient(
+            135deg,
+            #f5f7fa,
+            #e9eef4
+        );
+}
+
 .projects-grid {
     display: grid;
 
@@ -1182,25 +1462,74 @@ a {
 
     padding: 32px;
 
-    background: var(--white);
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(18, 52, 90, 0.12);
+
+    box-shadow:
+        0 10px 30px
+        rgba(8, 20, 38, 0.05);
+
+    position: relative;
+
+    overflow: hidden;
 
     transition:
         transform 0.3s ease,
-        border-color 0.3s ease;
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--gold),
+            var(--gold-light)
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-6px);
 
     border-color:
         rgba(200, 162, 74, 0.50);
+
+    box-shadow:
+        0 20px 45px
+        rgba(8, 20, 38, 0.10);
 }
 
 .project-card-number {
-    color: var(--gold);
+    color: var(--gold-dark);
 
     font-size: 0.72rem;
 
@@ -1236,10 +1565,15 @@ a {
 
 .contact {
     background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(200, 162, 74, 0.10),
+            transparent 28%
+        ),
         linear-gradient(
             135deg,
-            var(--deep-blue),
-            var(--black)
+            #081426,
+            #05080d 70%
         );
 
     color: var(--white);
@@ -1295,8 +1629,8 @@ a {
 
 .contact-details {
     border-left:
-        1px solid
-        rgba(200, 162, 74, 0.40);
+        2px solid
+        rgba(200, 162, 74, 0.45);
 
     padding-left: 35px;
 }
@@ -1327,13 +1661,23 @@ a {
    ========================================================= */
 
 .site-footer {
-    background: #020407;
+    background:
+        linear-gradient(
+            90deg,
+            #020407,
+            #07101d,
+            #020407
+        );
 
     color:
         rgba(255, 255, 255, 0.55);
 
     padding:
         35px 30px;
+
+    border-top:
+        1px solid
+        rgba(200, 162, 74, 0.16);
 }
 
 .footer-inner {
@@ -1467,9 +1811,6 @@ a {
             90px 22px;
     }
 
-
-    /* HEADER */
-
     .header-container {
         min-height:
             var(--header-height);
@@ -1555,9 +1896,6 @@ a {
         width: 55px;
     }
 
-
-    /* HERO */
-
     .hero {
         padding:
             calc(var(--header-height) + 65px)
@@ -1574,30 +1912,18 @@ a {
             );
     }
 
-
-    /* INTRO */
-
     .intro-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
 
-
-    /* BUSINESS */
-
     .business-grid {
         grid-template-columns: 1fr;
     }
 
-
-    /* VISION */
-
     .vision-grid {
         grid-template-columns: 1fr;
     }
-
-
-    /* TIMELINE */
 
     .timeline {
         display: flex;
@@ -1629,9 +1955,6 @@ a {
             45px;
     }
 
-
-    /* FUTURE */
-
     .future-section {
         margin-top: 65px;
 
@@ -1642,15 +1965,9 @@ a {
         grid-template-columns: 1fr;
     }
 
-
-    /* PROJECTS */
-
     .projects-grid {
         grid-template-columns: 1fr;
     }
-
-
-    /* CONTACT */
 
     .contact-inner {
         grid-template-columns: 1fr;
@@ -1661,9 +1978,6 @@ a {
     .contact-details {
         padding-left: 25px;
     }
-
-
-    /* FOOTER */
 
     .footer-inner {
         flex-direction: column;
