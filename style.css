@@ -2052,87 +2052,123 @@ a {
             rgba(18, 52, 90, 0.08);
     }
 
-    .timeline::before {
-        top: 35px;
 
-        left: 35px;
-        right: 35px;
+    /*
+       IMPORTANTE:
+       En móvil la línea ya no pertenece al viewport
+       completo del timeline.
 
-        width: auto;
+       Se ocultan los pseudo-elementos originales y
+       cada etapa genera su propio segmento de línea.
+       Así la línea acompaña a las 5 etapas completas.
+    */
 
-        height: 3px;
-
-        background:
-            linear-gradient(
-                90deg,
-                var(--gold-dark),
-                var(--gold-light),
-                var(--gold-light),
-                var(--gold-dark)
-            );
-
-        opacity: 0.9;
-
-        border-radius: 999px;
+    .timeline::before,
+    .timeline::after {
+        display: none;
     }
 
-    .timeline::after {
-        top: 29px;
 
-        left: 35px;
-        right: 35px;
+    /* =====================================================
+       SEGMENTOS DE LÍNEA ENTRE ETAPAS
+       ===================================================== */
 
-        height: 15px;
+    .timeline-item::after {
+        content: "";
+
+        position: absolute;
+
+        top: 34px;
+        left: 50%;
+
+        width: 235px;
+        height: 3px;
+
+        border-radius: 999px;
 
         background:
             linear-gradient(
                 90deg,
-                transparent 0%,
-                transparent 40%,
-                rgba(255, 255, 255, 0.05) 44%,
+                var(--gold-dark) 0%,
+                var(--gold-light) 34%,
                 rgba(255, 255, 255, 0.95) 50%,
-                var(--gold-light) 53%,
-                rgba(255, 255, 255, 0.08) 58%,
-                transparent 63%,
-                transparent 100%
+                var(--gold-light) 66%,
+                var(--gold-dark) 100%
             );
 
-        background-size: 180px 100%;
+        background-size: 300% 100%;
 
-        background-repeat: no-repeat;
-
-        background-position: -180px 0;
+        background-position: 100% 0;
 
         filter:
-            blur(0.3px)
             drop-shadow(
-                0 0 9px
-                rgba(228, 201, 107, 0.9)
+                0 0 5px
+                rgba(228, 201, 107, 0.45)
             );
-
-        animation:
-            timelineGlowMobile
-            3.5s
-            linear
-            infinite;
 
         pointer-events: none;
 
-        z-index: 2;
+        z-index: 1;
+
+        animation:
+            timelineSegmentGlow
+            4.8s
+            linear
+            infinite;
     }
 
-    @keyframes timelineGlowMobile {
+
+    /*
+       Cada segmento comienza un poco después del anterior.
+       Esto crea el efecto visual de recorrido:
+       01 → 02 → 03 → 04 → 05
+    */
+
+    .timeline-item:nth-child(1)::after {
+        animation-delay: 0s;
+    }
+
+    .timeline-item:nth-child(2)::after {
+        animation-delay: 1.2s;
+    }
+
+    .timeline-item:nth-child(3)::after {
+        animation-delay: 2.4s;
+    }
+
+    .timeline-item:nth-child(4)::after {
+        animation-delay: 3.6s;
+    }
+
+
+    /*
+       La última etapa no necesita segmento porque
+       es el punto final del recorrido.
+    */
+
+    .timeline-item:nth-child(5)::after {
+        display: none;
+    }
+
+
+    @keyframes timelineSegmentGlow {
 
         0% {
             background-position:
-                -180px 0;
+                100% 0;
+        }
+
+        50% {
+            background-position:
+                0% 0;
         }
 
         100% {
             background-position:
-                calc(100% + 180px) 0;
+                -100% 0;
         }
     }
+
 
     .timeline-item {
         flex:
@@ -2266,6 +2302,11 @@ a {
         min-height: 200px;
     }
 
+
+    /* =====================================================
+       TIMELINE SMALL PHONES
+       ===================================================== */
+
     .timeline-item {
         flex-basis: 220px;
 
@@ -2273,15 +2314,16 @@ a {
         padding-right: 14px;
     }
 
-    .timeline::before {
-        left: 28px;
-        right: 28px;
+
+    /*
+       El segmento ahora coincide exactamente con
+       la distancia entre los centros de las etapas.
+    */
+
+    .timeline-item::after {
+        width: 220px;
     }
 
-    .timeline::after {
-        left: 28px;
-        right: 28px;
-    }
 
     .timeline-item::before {
         top: 28px;
