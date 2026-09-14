@@ -1,15 +1,24 @@
 /* =========================================
    BLANCO ELITE™
-   FASE 3 — INTERACTIVIDAD
+   SCRIPT.JS COMPLETO
    ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const header = document.querySelector("header");
-    const navLinks = document.querySelectorAll("nav a");
-    const sections = document.querySelectorAll("section[id]");
-    const revealElements = document.querySelectorAll(".reveal");
-    const businessCards = document.querySelectorAll(".business-card");
+    const header =
+        document.querySelector("header");
+
+    const navLinks =
+        document.querySelectorAll("nav a");
+
+    const sections =
+        document.querySelectorAll("section[id]");
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const businessCards =
+        document.querySelectorAll(".business-card");
 
 
     /* =========================================
@@ -18,15 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateHeader() {
 
+        if (!header) {
+            return;
+        }
+
         if (window.scrollY > 40) {
+
             header.classList.add("scrolled");
+
         } else {
+
             header.classList.remove("scrolled");
+
         }
 
     }
 
-    window.addEventListener("scroll", updateHeader);
+    window.addEventListener(
+        "scroll",
+        updateHeader
+    );
 
     updateHeader();
 
@@ -41,15 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sections.forEach(section => {
 
-            const sectionTop = section.offsetTop - 130;
-            const sectionHeight = section.offsetHeight;
+            const sectionTop =
+                section.offsetTop - 150;
+
+            const sectionHeight =
+                section.offsetHeight;
 
             if (
                 window.scrollY >= sectionTop &&
-                window.scrollY < sectionTop + sectionHeight
+                window.scrollY <
+                sectionTop + sectionHeight
             ) {
 
-                currentSection = section.getAttribute("id");
+                currentSection =
+                    section.getAttribute("id");
 
             }
 
@@ -60,9 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             link.classList.remove("active");
 
-            const target = link.getAttribute("href");
+            const target =
+                link.getAttribute("href");
 
-            if (target === `#${currentSection}`) {
+            if (
+                target ===
+                `#${currentSection}`
+            ) {
 
                 link.classList.add("active");
 
@@ -72,7 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    window.addEventListener("scroll", updateActiveSection);
+    window.addEventListener(
+        "scroll",
+        updateActiveSection
+    );
 
     updateActiveSection();
 
@@ -81,63 +113,96 @@ document.addEventListener("DOMContentLoaded", () => {
        SCROLL REVEAL
        ========================================= */
 
-    const observer = new IntersectionObserver(
-        entries => {
+    if ("IntersectionObserver" in window) {
 
-            entries.forEach(entry => {
+        const observer =
+            new IntersectionObserver(
+                entries => {
 
-                if (entry.isIntersecting) {
+                    entries.forEach(entry => {
 
-                    entry.target.classList.add("visible");
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                    observer.unobserve(entry.target);
+                            entry.target
+                                .classList
+                                .add("visible");
 
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
                 }
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
+            );
 
 
-    revealElements.forEach(element => {
+        revealElements.forEach(element => {
 
-        observer.observe(element);
+            observer.observe(element);
 
-    });
+        });
+
+    } else {
+
+        revealElements.forEach(element => {
+
+            element.classList.add("visible");
+
+        });
+
+    }
 
 
     /* =========================================
-       MENÚ SUAVE
+       NAVEGACIÓN SUAVE
        ========================================= */
 
     navLinks.forEach(link => {
 
-        link.addEventListener("click", event => {
+        link.addEventListener(
+            "click",
+            event => {
 
-            const targetId = link.getAttribute("href");
+                const targetId =
+                    link.getAttribute("href");
 
-            if (!targetId.startsWith("#")) {
-                return;
+                if (
+                    !targetId ||
+                    !targetId.startsWith("#")
+                ) {
+
+                    return;
+
+                }
+
+                const targetSection =
+                    document.querySelector(
+                        targetId
+                    );
+
+                if (!targetSection) {
+
+                    return;
+
+                }
+
+                event.preventDefault();
+
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
             }
-
-            const targetSection = document.querySelector(targetId);
-
-            if (!targetSection) {
-                return;
-            }
-
-            event.preventDefault();
-
-            targetSection.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        });
+        );
 
     });
 
@@ -148,20 +213,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
     businessCards.forEach(card => {
 
-        card.addEventListener("click", () => {
+        card.addEventListener(
+            "click",
+            event => {
 
-            businessCards.forEach(otherCard => {
+                const clickedButton =
+                    event.target.closest(
+                        ".business-button"
+                    );
 
-                if (otherCard !== card) {
-                    otherCard.classList.remove("selected");
-                }
+                businessCards.forEach(
+                    otherCard => {
 
-            });
+                        if (
+                            otherCard !== card
+                        ) {
 
-            card.classList.toggle("selected");
+                            otherCard.classList
+                                .remove(
+                                    "selected"
+                                );
 
-        });
+                        }
+
+                    }
+                );
+
+
+                card.classList.toggle(
+                    "selected"
+                );
+
+            }
+        );
 
     });
+
+
+    /* =========================================
+       BOTÓN DE CONTACTO
+       ========================================= */
+
+    const contactButton =
+        document.querySelector(
+            "#contact-button"
+        );
+
+    if (contactButton) {
+
+        contactButton.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+
+                const contactSection =
+                    document.querySelector(
+                        "#contacto"
+                    );
+
+                if (contactSection) {
+
+                    contactSection.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    }
 
 });
