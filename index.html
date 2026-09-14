@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blanco Elite | Family Group</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f5;
+            color: #1c1c1c;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111111;
+            color: white;
+            padding: 24px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 92px);
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #111111;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            background: #333333;
+        }
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        .section-text {
+            max-width: 800px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .businesses {
+            background: #eeeeeb;
+        }
+
+        .business-grid {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .business-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #ddd;
+        }
+
+        .business-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .business-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .vision {
+            background: #111111;
+            color: white;
+        }
+
+        .vision .section-text {
+            color: #cccccc;
+        }
+
+        .projects {
+            background: white;
+        }
+
+        footer {
+            background: #111111;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            section {
+                padding: 65px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="brand">BLANCO ELITE</div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Quiénes Somos</a>
+            <a href="#negocios">Negocios</a>
+            <a href="#vision">Visión</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+
+                <h1>BLANCO ELITE</h1>
+
+                <p>
+                    Family Group · El Salvador
+                </p>
+
+                <p>
+                    Construyendo un legado.<br>
+                    Creando oportunidades.<br>
+                    Pensando en generaciones.
+                </p>
+
+                <a href="#nosotros" class="button">
+                    CONOCER BLANCO ELITE
+                </a>
+
+            </div>
+        </section>
+
+
+        <section id="nosotros">
+
+            <h2 class="section-title">Quiénes Somos</h2>
+
+            <p class="section-text">
+                Blanco Elite es un grupo empresarial familiar con base
+                en El Salvador, creado con una visión de crecimiento,
+                innovación y continuidad generacional.
+            </p>
+
+        </section>
+
+
+        <section class="businesses" id="negocios">
+
+            <h2 class="section-title">Nuestros Negocios</h2>
+
+            <p class="section-text">
+                Blanco Elite está diseñado para desarrollar diferentes
+                empresas y proyectos bajo una misma visión familiar.
+            </p>
+
+            <div class="business-grid">
+
+                <div class="business-card">
+                    <h3>Tecnología</h3>
+                    <p>
+                        Aplicaciones, plataformas digitales y nuevos
+                        proyectos tecnológicos.
+                    </p>
+                </div>
+
+                <div class="business-card">
+                    <h3>Transporte</h3>
+                    <p>
+                        Soluciones de transporte y movilidad.
+                    </p>
+                </div>
+
+                <div class="business-card">
+                    <h3>Retail</h3>
+                    <p>
+                        Comercio y proyectos de tiendas familiares.
+                    </p>
+                </div>
+
+                <div class="business-card">
+                    <h3>Real Estate</h3>
+                    <p>
+                        Propiedades, desarrollos e inversiones.
+                    </p>
+                </div>
+
+                <div class="business-card">
+                    <h3>Entertainment</h3>
+                    <p>
+                        Media, música, películas y entretenimiento.
+                    </p>
+                </div>
+
+                <div class="business-card">
+                    <h3>Hospitality</h3>
+                    <p>
+                        Resorts, experiencias y proyectos turísticos.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="vision" id="vision">
+
+            <h2 class="section-title">Nuestra Visión</h2>
+
+            <p class="section-text">
+                Crear una organización que pueda crecer con el tiempo,
+                generar oportunidades y conservar una visión familiar
+                que pueda continuar de generación en generación.
+            </p>
+
+        </section>
+
+
+        <section class="projects" id="proyectos">
+
+            <h2 class="section-title">Proyectos</h2>
+
+            <p class="section-text">
+                Blanco Elite continuará incorporando nuevos proyectos
+                y empresas conforme evolucione el grupo.
+            </p>
+
+        </section>
+
+
+        <section id="contacto">
+
+            <h2 class="section-title">Contacto</h2>
+
+            <p class="section-text">
+                Blanco Elite<br>
+                El Salvador
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 Blanco Elite · Family Group · El Salvador
+    </footer>
+
+</body>
+</html>
