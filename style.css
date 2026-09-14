@@ -22,14 +22,14 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--header-height) + 15px);
+    scroll-padding-top: calc(var(--header-height) + 25px);
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--black);
     background: var(--white);
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: hidden;
 }
 
@@ -130,11 +130,12 @@ a {
 }
 
 /* =========================
-   GENERAL
+   GENERAL SECTIONS
 ========================= */
 
 section {
     position: relative;
+    padding: 125px 0;
 }
 
 .container {
@@ -153,12 +154,12 @@ section {
 
 .section-header {
     max-width: 780px;
-    margin-bottom: 55px;
+    margin-bottom: 70px;
 }
 
 .section-label {
     display: inline-block;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     color: var(--gold);
     font-size: 0.78rem;
     font-weight: 800;
@@ -173,9 +174,11 @@ section {
 }
 
 .section-text {
-    margin-top: 20px;
+    margin-top: 28px;
     color: var(--gray);
     font-size: 1.04rem;
+    line-height: 1.85;
+    max-width: 720px;
 }
 
 .section-dark .section-text {
@@ -188,7 +191,7 @@ section {
 
 .hero {
     min-height: 100vh;
-    padding: 170px 0 110px;
+    padding: 180px 0 130px;
     display: flex;
     align-items: center;
     background:
@@ -207,7 +210,7 @@ section {
     font-weight: 800;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .hero h1 {
@@ -223,13 +226,14 @@ section {
 
 .hero-subtitle {
     max-width: 760px;
-    margin-top: 28px;
+    margin-top: 34px;
     color: rgba(255, 255, 255, 0.76);
     font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.8;
 }
 
 .hero-signature {
-    margin-top: 35px;
+    margin-top: 42px;
     color: var(--gold-light);
     font-size: 1rem;
     font-weight: 700;
@@ -242,14 +246,14 @@ section {
 .business-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 28px;
 }
 
 .business-card {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 18px;
-    padding: 30px;
+    padding: 34px;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -267,13 +271,15 @@ section {
 }
 
 .business-card h3 {
-    margin-top: 14px;
+    margin-top: 17px;
     font-size: 1.35rem;
+    line-height: 1.3;
 }
 
 .business-card p {
-    margin-top: 12px;
+    margin-top: 17px;
     color: var(--gray);
+    line-height: 1.75;
 }
 
 .business-button {
@@ -286,7 +292,8 @@ section {
     align-items: center;
     gap: 9px;
     font-weight: 800;
-    padding: 8px 0;
+    padding: 10px 0;
+    margin-top: 10px;
 }
 
 .business-button span {
@@ -313,8 +320,8 @@ section {
 
 .business-card.selected .business-details {
     grid-template-rows: 1fr;
-    margin-top: 18px;
-    padding-top: 18px;
+    margin-top: 20px;
+    padding-top: 20px;
     border-top: 1px solid var(--border);
 }
 
@@ -348,7 +355,7 @@ section {
 
 .timeline-item {
     position: relative;
-    padding: 28px 22px;
+    padding: 35px 25px;
     border-top: 1px solid rgba(255, 255, 255, 0.22);
 }
 
@@ -356,7 +363,7 @@ section {
     content: "";
     position: absolute;
     top: -5px;
-    left: 22px;
+    left: 25px;
     width: 9px;
     height: 9px;
     border-radius: 50%;
@@ -371,14 +378,16 @@ section {
 }
 
 .timeline-item h3 {
-    margin-top: 12px;
+    margin-top: 17px;
     font-size: 1.1rem;
+    line-height: 1.35;
 }
 
 .timeline-item p {
-    margin-top: 10px;
+    margin-top: 14px;
     color: rgba(255, 255, 255, 0.68);
     font-size: 0.92rem;
+    line-height: 1.75;
 }
 
 /* =========================
@@ -388,11 +397,11 @@ section {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 28px;
 }
 
 .project-card {
-    padding: 32px;
+    padding: 36px;
     border: 1px solid var(--border);
     border-radius: 18px;
     background: var(--white);
@@ -406,13 +415,15 @@ section {
 }
 
 .project-card h3 {
-    margin-top: 14px;
+    margin-top: 17px;
     font-size: 1.25rem;
+    line-height: 1.35;
 }
 
 .project-card p {
-    margin-top: 10px;
+    margin-top: 15px;
     color: var(--gray);
+    line-height: 1.75;
 }
 
 /* =========================
@@ -422,13 +433,13 @@ section {
 .contact-box {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
 }
 
 .contact-link {
     display: inline-flex;
-    margin-top: 25px;
+    margin-top: 32px;
     color: var(--gold);
     font-weight: 800;
     font-size: 1.05rem;
@@ -436,6 +447,7 @@ section {
 
 .contact-note {
     color: rgba(255, 255, 255, 0.65);
+    line-height: 1.8;
 }
 
 /* =========================
@@ -445,7 +457,7 @@ section {
 .site-footer {
     background: #030508;
     color: rgba(255, 255, 255, 0.68);
-    padding: 35px 0;
+    padding: 45px 0;
 }
 
 .footer-container {
@@ -507,7 +519,7 @@ section {
 
     .timeline {
         grid-template-columns: repeat(3, 1fr);
-        row-gap: 25px;
+        row-gap: 35px;
     }
 }
 
@@ -569,13 +581,7 @@ section {
         white-space: normal;
     }
 
-    /*
-       MISMO COMPORTAMIENTO QUE ESCRITORIO
-
-       La línea empieza en 0.
-       Solamente .active puede mostrarla.
-       No usamos hover para activarla en móvil.
-    */
+    /* MENU MOBILE IGUAL AL DE COMPUTADORA */
 
     .main-nav a::after {
         left: 0;
@@ -601,13 +607,29 @@ section {
         color: var(--white);
     }
 
+    /* MÁS ESPACIO EN EL CONTENIDO */
+
+    section {
+        padding: 100px 0;
+    }
+
     .hero {
         min-height: 100vh;
-        padding: 235px 0 90px;
+        padding: 235px 0 110px;
     }
 
     .hero h1 {
         font-size: clamp(2.8rem, 14vw, 5rem);
+    }
+
+    .hero-subtitle {
+        margin-top: 28px;
+        line-height: 1.8;
+    }
+
+    .hero-signature {
+        margin-top: 35px;
+        line-height: 1.7;
     }
 
     .container {
@@ -615,28 +637,71 @@ section {
     }
 
     .section-header {
-        margin-bottom: 38px;
+        margin-bottom: 55px;
+    }
+
+    .section-label {
+        margin-bottom: 15px;
+    }
+
+    .section-text {
+        margin-top: 23px;
+        line-height: 1.8;
     }
 
     .business-grid,
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .business-card {
+        padding: 30px;
+    }
+
+    .business-card h3 {
+        margin-top: 15px;
+    }
+
+    .business-card p {
+        margin-top: 15px;
     }
 
     .timeline {
         grid-template-columns: 1fr;
+        row-gap: 25px;
+    }
+
+    .timeline-item {
+        padding: 30px 22px;
+    }
+
+    .timeline-item h3 {
+        margin-top: 15px;
+    }
+
+    .timeline-item p {
+        margin-top: 12px;
+    }
+
+    .project-card {
+        padding: 30px;
     }
 
     .contact-box {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 50px;
+    }
+
+    .contact-link {
+        margin-top: 28px;
     }
 
     .footer-container {
         width: calc(100% - 30px);
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 15px;
     }
 }
 
@@ -679,11 +744,6 @@ section {
         padding: 4px 1px;
     }
 
-    /*
-       EXACTAMENTE EL MISMO SISTEMA:
-       solo el elemento activo tiene línea.
-    */
-
     .main-nav a:hover::after {
         width: 0;
     }
@@ -692,7 +752,31 @@ section {
         width: 100%;
     }
 
+    /* ESPACIADO EXTRA PARA PANTALLAS PEQUEÑAS */
+
+    section {
+        padding: 90px 0;
+    }
+
     .hero {
         padding-top: 235px;
+        padding-bottom: 100px;
+    }
+
+    .section-header {
+        margin-bottom: 48px;
+    }
+
+    .section-text {
+        line-height: 1.85;
+    }
+
+    .business-card,
+    .project-card {
+        padding: 27px;
+    }
+
+    .timeline-item {
+        padding: 28px 20px;
     }
 }
