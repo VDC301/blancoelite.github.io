@@ -1,16 +1,35 @@
 /* =========================================================
-   BLANCO ELITE™
-   SCRIPT.JS
-   ========================================================= */
+   BLANCO ELITE
+   MAIN JAVASCRIPT
+========================================================= */
 
 
 /* =========================================================
-   HEADER
-   ========================================================= */
+   ELEMENTS
+========================================================= */
 
-const header =
-    document.getElementById("site-header");
+const header = document.getElementById("site-header");
+const navLinks = document.querySelectorAll(".main-nav a");
+const sections = document.querySelectorAll("main section[id]");
+const revealElements = document.querySelectorAll(".reveal");
+const businessCards = document.querySelectorAll(".business-card");
+const businessButtons = document.querySelectorAll(".business-button");
 
+
+/* =========================================================
+   PAGE LOADED
+========================================================= */
+
+window.addEventListener("load", () => {
+
+    document.body.classList.add("page-loaded");
+
+});
+
+
+/* =========================================================
+   HEADER SCROLL EFFECT
+========================================================= */
 
 function updateHeader() {
 
@@ -25,74 +44,59 @@ function updateHeader() {
         header.classList.remove("scrolled");
 
     }
-}
 
+}
 
 window.addEventListener(
     "scroll",
-    updateHeader
+    updateHeader,
+    { passive: true }
 );
-
 
 updateHeader();
 
 
 /* =========================================================
-   ACTIVE NAVIGATION
-   ========================================================= */
+   ACTIVE NAVIGATION WHILE SCROLLING
+========================================================= */
 
-const navLinks =
-    document.querySelectorAll(".main-nav a");
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
 
-const sections =
-    document.querySelectorAll("main section[id]");
+        entries.forEach((entry) => {
 
+            if (!entry.isIntersecting) return;
 
-const sectionObserver =
-    new IntersectionObserver(
-        (entries) => {
+            const sectionId = entry.target.id;
 
-            entries.forEach((entry) => {
+            navLinks.forEach((link) => {
 
-                if (!entry.isIntersecting) {
-                    return;
+                link.classList.remove("active");
+
+                const href =
+                    link.getAttribute("href");
+
+                if (href === `#${sectionId}`) {
+
+                    link.classList.add("active");
+
                 }
-
-                const currentId =
-                    entry.target.id;
-
-
-                navLinks.forEach((link) => {
-
-                    const target =
-                        link.getAttribute("href");
-
-
-                    if (
-                        target === `#${currentId}`
-                    ) {
-
-                        link.classList.add("active");
-
-                    } else {
-
-                        link.classList.remove("active");
-
-                    }
-
-                });
 
             });
 
-        },
-        {
-            rootMargin:
-                "-25% 0px -65% 0px",
+        });
 
-            threshold: 0
-        }
-    );
+    },
+    {
+        root: null,
 
+        rootMargin:
+            "-25% 0px -65% 0px",
+
+        threshold:
+            0
+    }
+);
 
 sections.forEach((section) => {
 
@@ -103,104 +107,86 @@ sections.forEach((section) => {
 
 /* =========================================================
    SMOOTH NAVIGATION
-   ========================================================= */
+========================================================= */
 
 navLinks.forEach((link) => {
 
-    link.addEventListener(
-        "click",
-        (event) => {
+    link.addEventListener("click", (event) => {
 
-            const targetId =
-                link.getAttribute("href");
+        const href =
+            link.getAttribute("href");
 
-
-            if (
-                !targetId ||
-                !targetId.startsWith("#")
-            ) {
-
-                return;
-
-            }
-
-
-            const target =
-                document.querySelector(targetId);
-
-
-            if (!target) {
-                return;
-            }
-
-
-            event.preventDefault();
-
-
-            const headerHeight =
-                header
-                    ? header.offsetHeight
-                    : 0;
-
-
-            const targetPosition =
-                target.getBoundingClientRect().top +
-                window.scrollY -
-                headerHeight -
-                10;
-
-
-            window.scrollTo({
-
-                top:
-                    targetPosition,
-
-                behavior:
-                    "smooth"
-
-            });
-
+        if (!href || !href.startsWith("#")) {
+            return;
         }
-    );
+
+        const target =
+            document.querySelector(href);
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+
+        const headerHeight =
+            header
+                ? header.offsetHeight
+                : 0;
+
+        const targetPosition =
+            target.getBoundingClientRect().top
+            + window.scrollY
+            - headerHeight
+            - 12;
+
+        window.scrollTo({
+
+            top:
+                targetPosition,
+
+            behavior:
+                "smooth"
+
+        });
+
+    });
 
 });
 
 
 /* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
+   REVEAL ON SCROLL
+========================================================= */
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
 
+        entries.forEach((entry) => {
 
-const revealObserver =
-    new IntersectionObserver(
-        (entries, observer) => {
+            if (!entry.isIntersecting) {
+                return;
+            }
 
-            entries.forEach((entry) => {
+            entry.target.classList.add("visible");
 
-                if (!entry.isIntersecting) {
-                    return;
-                }
+            observer.unobserve(
+                entry.target
+            );
 
+        });
 
-                entry.target.classList.add(
-                    "visible"
-                );
+    },
+    {
+        root: null,
 
+        threshold:
+            0.12,
 
-                observer.unobserve(
-                    entry.target
-                );
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
+        rootMargin:
+            "0px 0px -40px 0px"
+    }
+);
 
 
 revealElements.forEach((element) => {
@@ -211,87 +197,90 @@ revealElements.forEach((element) => {
 
 
 /* =========================================================
-   BUSINESS CARDS
-   ========================================================= */
-
-const businessCards =
-    document.querySelectorAll(
-        ".business-card"
-    );
-
-
-const businessButtons =
-    document.querySelectorAll(
-        ".business-button"
-    );
-
+   BUSINESS CARD EXPLORER
+========================================================= */
 
 businessButtons.forEach((button) => {
 
-    button.addEventListener(
-        "click",
-        (event) => {
+    button.addEventListener("click", () => {
 
-            event.preventDefault();
+        const card =
+            button.closest(".business-card");
 
-            event.stopPropagation();
-
-
-            const card =
-                button.closest(
-                    ".business-card"
-                );
+        if (!card) return;
 
 
-            if (!card) {
-                return;
-            }
+        const isSelected =
+            card.classList.contains("selected");
 
 
-            const wasSelected =
-                card.classList.contains(
+        /* Close every other card */
+
+        businessCards.forEach((otherCard) => {
+
+            if (otherCard !== card) {
+
+                otherCard.classList.remove(
                     "selected"
                 );
 
+                const otherButton =
+                    otherCard.querySelector(
+                        ".business-button"
+                    );
 
-            businessCards.forEach(
-                (otherCard) => {
+                if (otherButton) {
 
-                    otherCard.classList.remove(
-                        "selected"
+                    otherButton.setAttribute(
+                        "aria-expanded",
+                        "false"
                     );
 
                 }
-            );
-
-
-            if (!wasSelected) {
-
-                card.classList.add(
-                    "selected"
-                );
 
             }
 
+        });
+
+
+        /* Toggle current card */
+
+        if (isSelected) {
+
+            card.classList.remove(
+                "selected"
+            );
+
+            button.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        } else {
+
+            card.classList.add(
+                "selected"
+            );
+
+            button.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
         }
-    );
+
+    });
 
 });
 
 
 /* =========================================================
    KEYBOARD ACCESSIBILITY
-   ========================================================= */
+========================================================= */
 
-businessCards.forEach((card) => {
+businessButtons.forEach((button) => {
 
-    card.setAttribute(
-        "tabindex",
-        "0"
-    );
-
-
-    card.addEventListener(
+    button.addEventListener(
         "keydown",
         (event) => {
 
@@ -302,15 +291,7 @@ businessCards.forEach((card) => {
 
                 event.preventDefault();
 
-                const button =
-                    card.querySelector(
-                        ".business-button"
-                    );
-
-
-                if (button) {
-                    button.click();
-                }
+                button.click();
 
             }
 
@@ -321,16 +302,78 @@ businessCards.forEach((card) => {
 
 
 /* =========================================================
-   PAGE LOADED
-   ========================================================= */
+   CLOSE BUSINESS CARDS WHEN CLICKING OUTSIDE
+========================================================= */
 
-window.addEventListener(
-    "load",
-    () => {
+document.addEventListener(
+    "click",
+    (event) => {
 
-        document.body.classList.add(
-            "page-loaded"
-        );
+        if (
+            event.target.closest(".business-card")
+        ) {
+            return;
+        }
+
+        businessCards.forEach((card) => {
+
+            card.classList.remove(
+                "selected"
+            );
+
+            const button =
+                card.querySelector(
+                    ".business-button"
+                );
+
+            if (button) {
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key !== "Escape") {
+            return;
+        }
+
+        businessCards.forEach((card) => {
+
+            card.classList.remove(
+                "selected"
+            );
+
+            const button =
+                card.querySelector(
+                    ".business-button"
+                );
+
+            if (button) {
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
 
     }
 );
