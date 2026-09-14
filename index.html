@@ -2,1063 +2,624 @@
 <html lang="es">
 
 <head>
-    
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta
+        name="description"
+        content="Blanco Elite™ — Grupo Empresarial Familiar con base en El Salvador."
+    >
+
     <title>Blanco Elite™ | Grupo Empresarial Familiar</title>
 
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f3;
-            color: #171717;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #111;
-            color: white;
-            padding: 22px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #333;
-        }
-
-        .brand {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 3px;
-        }
-
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            margin-left: 24px;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        .hero {
-            min-height: 88vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .eyebrow {
-            font-size: 13px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #777;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(52px, 10vw, 105px);
-            letter-spacing: 8px;
-            line-height: 1;
-            margin-bottom: 28px;
-        }
-
-        .hero h2 {
-            font-size: clamp(22px, 4vw, 38px);
-            font-weight: 400;
-            margin-bottom: 22px;
-        }
-
-        .hero p {
-            color: #666;
-            font-size: 18px;
-            max-width: 650px;
-            margin: 0 auto 35px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #111;
-            color: white;
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 1px;
-            transition: 0.2s;
-        }
-
-        .button:hover {
-            background: #333;
-        }
-
-        section {
-            padding: 100px 8%;
-        }
-
-        .section-label {
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #777;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: clamp(34px, 5vw, 52px);
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
-
-        .section-text {
-            max-width: 820px;
-            color: #555;
-            font-size: 17px;
-        }
-
-        .about {
-            background: #f5f5f3;
-        }
-
-        .businesses {
-            background: #e9e9e6;
-        }
-
-        .business-grid {
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 18px;
-        }
-
-        .business-card {
-            background: white;
-            padding: 32px;
-            min-height: 190px;
-            border: 1px solid #d8d8d5;
-            transition: 0.2s;
-        }
-
-        .business-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .business-number {
-            font-size: 12px;
-            color: #888;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-        }
-
-        .business-card h3 {
-            font-size: 21px;
-            margin-bottom: 10px;
-        }
-
-        .business-card p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .legacy {
-            background: #111;
-            color: white;
-        }
-
-        .legacy .section-label {
-            color: #999;
-        }
-
-        .legacy .section-text {
-            color: #ccc;
-        }
-
-        .projects {
-            background: white;
-        }
-
-        .contact {
-            background: #f5f5f3;
-        }
-
-        footer {
-            background: #111;
-            color: #888;
-            text-align: center;
-            padding: 35px 20px;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 750px) {
-
-            header {
-                flex-direction: column;
-                gap: 16px;
-                padding: 20px 5%;
-            }
-
-            nav {
-                text-align: center;
-            }
-
-            nav a {
-                display: inline-block;
-                margin: 4px 7px;
-                font-size: 12px;
-            }
-
-            .hero {
-                min-height: 78vh;
-            }
-
-            .hero h1 {
-                letter-spacing: 5px;
-            }
-
-            section {
-                padding: 75px 7%;
-            }
-
-        }
-
-    </style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <header>
+        <div class="brand">BLANCO ELITE™</div>
 
-<header>
-
-    <div class="brand">
-        BLANCO ELITE™
-    </div>
-
-    <nav>
-
-        <a href="#inicio">Inicio</a>
-
-        <a href="#nosotros">Quiénes Somos</a>
-
-        <a href="#negocios">Áreas de Negocio</a>
-
-        <a href="#legado">Legado Familiar</a>
-
-        <a href="#proyectos">Proyectos</a>
-
-        <a href="#contacto">Contacto</a>
-
-    </nav>
-
-</header>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Quiénes Somos</a>
+            <a href="#negocios">Áreas de Negocio</a>
+            <a href="#legado">Legado Familiar</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
 
 
-<main>
+    <main>
 
+        <!-- INICIO -->
 
-    <section class="hero" id="inicio">
+        <section class="hero" id="inicio">
 
-        <div class="hero-content">
+            <div class="hero-content">
 
-            <div class="eyebrow">
-                Grupo Empresarial Familiar · El Salvador
+                <div class="eyebrow">
+                    GRUPO EMPRESARIAL FAMILIAR · EL SALVADOR
+                </div>
+
+                <h1>
+                    BLANCO ELITE™
+                </h1>
+
+                <h2>
+                    Construyendo un legado que trasciende generaciones.
+                </h2>
+
+                <p>
+                    Un grupo empresarial familiar creado para desarrollar
+                    oportunidades, empresas y proyectos con una visión
+                    de largo plazo.
+                </p>
+
+                <a class="button" href="#nosotros">
+                    CONOCER BLANCO ELITE™
+                </a>
+
             </div>
 
-            <h1>
-                BLANCO ELITE™
-            </h1>
+        </section>
 
-            <h2>
-                Construyendo un legado que trasciende generaciones.
-            </h2>
-
-            <p>
-                Un grupo empresarial familiar creado para desarrollar
-                oportunidades, empresas y proyectos con una visión
-                de largo plazo.
-            </p>
-
-            <a href="#nosotros" class="button">
-                CONOCER BLANCO ELITE™
-            </a>
-
-        </div>
-
-    </section>
 
         <!-- QUIÉNES SOMOS -->
 
-    <section class="about" id="nosotros">
-
-        <div class="section-label">
-            01 · Nuestra identidad
-        </div>
-
-        <h2 class="section-title">
-            Quiénes Somos
-        </h2>
-
-        <p class="section-text">
-
-            <strong>Blanco Elite™</strong> es un grupo empresarial familiar
-            con base en El Salvador, creado con una visión de crecimiento,
-            innovación y continuidad a largo plazo.
-
-        </p>
-
-        <p class="section-text" style="margin-top: 25px;">
-
-            Nuestro propósito es desarrollar empresas, proyectos y
-            oportunidades que generen valor y contribuyan al crecimiento
-            de nuestro grupo, manteniendo siempre una visión responsable
-            y orientada hacia el futuro.
-
-        </p>
-
-
-        <div style="
-            margin-top: 55px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        ">
-
-            <div style="
-                background: white;
-                padding: 30px;
-                border: 1px solid #ddd;
-            ">
-
-                <div class="section-label">
-                    Nuestra Identidad
-                </div>
-
-                <p class="section-text" style="font-size: 15px;">
-
-                    Somos una organización familiar con una visión
-                    empresarial. Buscamos combinar el compromiso y los
-                    valores de una familia con la disciplina, profesionalismo
-                    e innovación necesarios para desarrollar empresas sólidas.
-
-                </p>
-
-            </div>
-
-
-            <div style="
-                background: white;
-                padding: 30px;
-                border: 1px solid #ddd;
-            ">
-
-                <div class="section-label">
-                    Nuestro Propósito
-                </div>
-
-                <p class="section-text" style="font-size: 15px;">
-
-                    Crear y desarrollar negocios y proyectos en diferentes
-                    sectores, buscando crecimiento sostenible, nuevas
-                    oportunidades y valor para las generaciones presentes
-                    y futuras.
-
-                </p>
-
-            </div>
-
-
-            <div style="
-                background: white;
-                padding: 30px;
-                border: 1px solid #ddd;
-            ">
-
-                <div class="section-label">
-                    Nuestra Visión
-                </div>
-
-                <p class="section-text" style="font-size: 15px;">
-
-                    Construir un grupo empresarial capaz de evolucionar
-                    con el tiempo, expandirse hacia nuevas áreas y mantener
-                    una identidad familiar sólida mientras avanza hacia
-                    el futuro.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div style="
-            margin-top: 30px;
-            padding: 35px;
-            background: #111;
-            color: white;
-            max-width: 900px;
-        ">
-
-            <div class="section-label" style="color: #999;">
-                Nuestro Compromiso
-            </div>
-
-            <p style="font-size: 18px; color: #ddd;">
-
-                Cada proyecto de Blanco Elite™ representa una oportunidad
-                para construir algo que pueda crecer, generar oportunidades
-                y formar parte de un legado empresarial que continúe de
-                generación en generación.
-
-            </p>
-
-        </div>
-
-    </section>
-        <!-- ÁREAS DE NEGOCIO -->
-
-    <section class="businesses" id="negocios">
-
-        <div class="section-label">
-            02 · Nuestro grupo
-        </div>
-
-        <h2 class="section-title">
-            Áreas de Negocio
-        </h2>
-
-        <p class="section-text">
-
-            Blanco Elite™ está diseñado para desarrollar y reunir
-            diferentes empresas y proyectos bajo una misma visión
-            empresarial y familiar.
-
-        </p>
-
-
-        <div class="business-grid">
-
-
-            <div class="business-card">
-
-                <div class="business-number">
-                    01 · TECNOLOGÍA
-                </div>
-
-                <h3>
-                    Tecnología
-                </h3>
-
-                <p>
-
-                    Desarrollo de aplicaciones, plataformas digitales,
-                    programas y soluciones tecnológicas destinadas a
-                    crear nuevas oportunidades y servicios.
-
-                </p>
-
-            </div>
-
-
-            <div class="business-card">
-
-                <div class="business-number">
-                    02 · TRANSPORTE
-                </div>
-
-                <h3>
-                    Transporte
-                </h3>
-
-                <p>
-
-                    Soluciones de transporte, movilidad, renta de
-                    vehículos y otros servicios relacionados con
-                    la movilidad.
-
-                </p>
-
-            </div>
-
-
-            <div class="business-card">
-
-                <div class="business-number">
-                    03 · COMERCIO
-                </div>
-
-                <h3>
-                    Comercio
-                </h3>
-
-                <p>
-
-                    Tiendas, comercio y proyectos orientados a ofrecer
-                    productos y servicios para las familias y
-                    comunidades.
-
-                </p>
-
-            </div>
-
-
-            <div class="business-card">
-
-                <div class="business-number">
-                    04 · BIENES RAÍCES
-                </div>
-
-                <h3>
-                    Bienes Raíces
-                </h3>
-
-                <p>
-
-                    Propiedades, desarrollos, inversiones y proyectos
-                    inmobiliarios que contribuyan al crecimiento
-                    del grupo.
-
-                </p>
-
-            </div>
-
-
-            <div class="business-card">
-
-                <div class="business-number">
-                    05 · HOSPITALIDAD
-                </div>
-
-                <h3>
-                    Hospitalidad
-                </h3>
-
-                <p>
-
-                    Resorts, experiencias, turismo y proyectos de
-                    entretenimiento y hospitalidad para familias
-                    y comunidades.
-
-                </p>
-
-            </div>
-
-
-            <div class="business-card">
-
-                <div class="business-number">
-                    06 · MEDIOS Y ENTRETENIMIENTO
-                </div>
-
-                <h3>
-                    Medios y Entretenimiento
-                </h3>
-
-                <p>
-
-                    Música, películas, producción de contenido,
-                    medios digitales y futuros proyectos de
-                    entretenimiento.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <div style="
-            margin-top: 55px;
-            padding: 35px;
-            background: white;
-            border: 1px solid #d8d8d5;
-            max-width: 900px;
-        ">
+        <section class="about" id="nosotros">
 
             <div class="section-label">
-                Una visión · Diferentes oportunidades
+                01 · NUESTRA IDENTIDAD
             </div>
 
-            <p style="font-size: 18px; color: #444;">
+            <h2 class="section-title">
+                Quiénes Somos
+            </h2>
 
-                Cada área representa una oportunidad para desarrollar
-                nuevos negocios y construir empresas que formen parte
-                del crecimiento a largo plazo de Blanco Elite™.
-
+            <p class="section-text">
+                <strong>Blanco Elite™</strong> es un grupo empresarial familiar
+                con base en El Salvador, creado con una visión de crecimiento,
+                innovación y continuidad a largo plazo.
             </p>
 
-        </div>
+            <p class="section-text">
+                Nuestro propósito es desarrollar empresas, proyectos y
+                oportunidades que generen valor y contribuyan al crecimiento
+                de nuestro grupo, manteniendo siempre una visión responsable
+                y orientada hacia el futuro.
+            </p>
 
-    </section>
+
+            <div class="business-grid">
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        NUESTRA IDENTIDAD
+                    </div>
+
+                    <h3>
+                        Familia y Empresa
+                    </h3>
+
+                    <p>
+                        Somos una organización familiar con una visión
+                        empresarial. Buscamos combinar el compromiso y los
+                        valores de una familia con la disciplina,
+                        profesionalismo e innovación necesarios para
+                        desarrollar empresas sólidas.
+                    </p>
+
+                </div>
+
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        NUESTRO PROPÓSITO
+                    </div>
+
+                    <h3>
+                        Crear Oportunidades
+                    </h3>
+
+                    <p>
+                        Crear y desarrollar negocios y proyectos en diferentes
+                        sectores, buscando crecimiento sostenible, nuevas
+                        oportunidades y valor para las generaciones presentes
+                        y futuras.
+                    </p>
+
+                </div>
+
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        NUESTRA VISIÓN
+                    </div>
+
+                    <h3>
+                        Mirar Hacia el Futuro
+                    </h3>
+
+                    <p>
+                        Construir un grupo empresarial capaz de evolucionar
+                        con el tiempo, expandirse hacia nuevas áreas y
+                        mantener una identidad familiar sólida mientras
+                        avanza hacia el futuro.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dark-panel">
+
+                <div class="section-label">
+                    NUESTRO COMPROMISO
+                </div>
+
+                <p>
+                    Cada proyecto de Blanco Elite™ representa una oportunidad
+                    para construir algo que pueda crecer, generar oportunidades
+                    y formar parte de un legado empresarial que continúe de
+                    generación en generación.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ÁREAS DE NEGOCIO -->
+
+        <section class="businesses" id="negocios">
+
+            <div class="section-label">
+                02 · NUESTRO GRUPO
+            </div>
+
+            <h2 class="section-title">
+                Áreas de Negocio
+            </h2>
+
+            <p class="section-text">
+                Blanco Elite™ está diseñado para desarrollar y reunir
+                diferentes empresas y proyectos bajo una misma visión
+                empresarial y familiar.
+            </p>
+
+
+            <div class="business-grid">
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        01 · TECNOLOGÍA
+                    </div>
+
+                    <h3>
+                        Tecnología
+                    </h3>
+
+                    <p>
+                        Desarrollo de aplicaciones, plataformas digitales,
+                        programas y soluciones tecnológicas destinadas a
+                        crear nuevas oportunidades y servicios.
+                    </p>
+
+                </div>
+
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        02 · TRANSPORTE
+                    </div>
+
+                    <h3>
+                        Transporte
+                    </h3>
+
+                    <p>
+                        Soluciones de transporte, movilidad, renta de
+                        vehículos y otros servicios relacionados con
+                        la movilidad.
+                    </p>
+
+                </div>
+
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        03 · COMERCIO
+                    </div>
+
+                    <h3>
+                        Comercio
+                    </h3>
+
+                    <p>
+                        Tiendas, comercio y proyectos orientados a ofrecer
+                        productos y servicios para las familias y
+                        comunidades.
+                    </p>
+
+                </div>
+
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        04 · BIENES RAÍCES
+                    </div>
+
+                    <h3>
+                        Bienes Raíces
+                    </h3>
+
+                    <p>
+                        Propiedades, desarrollos, inversiones y proyectos
+                        inmobiliarios que contribuyan al crecimiento
+                        del grupo.
+                    </p>
+
+                </div>
+
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        05 · HOSPITALIDAD
+                    </div>
+
+                    <h3>
+                        Hospitalidad
+                    </h3>
+
+                    <p>
+                        Resorts, experiencias, turismo y proyectos de
+                        entretenimiento y hospitalidad para familias
+                        y comunidades.
+                    </p>
+
+                </div>
+
+
+                <div class="business-card">
+
+                    <div class="business-number">
+                        06 · MEDIOS Y ENTRETENIMIENTO
+                    </div>
+
+                    <h3>
+                        Medios y Entretenimiento
+                    </h3>
+
+                    <p>
+                        Música, películas, producción de contenido,
+                        medios digitales y futuros proyectos de
+                        entretenimiento.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-panel">
+
+                <div class="section-label">
+                    UNA VISIÓN · DIFERENTES OPORTUNIDADES
+                </div>
+
+                <p>
+                    Cada área representa una oportunidad para desarrollar
+                    nuevos negocios y construir empresas que formen parte
+                    del crecimiento a largo plazo de Blanco Elite™.
+                </p>
+
+            </div>
+
+        </section>
+
+
         <!-- LEGADO FAMILIAR -->
 
-    <section class="legacy" id="legado">
+        <section class="legacy" id="legado">
 
-        <div class="section-label">
-            03 · Nuestro Futuro
-        </div>
-
-        <h2 class="section-title">
-            Legado Familiar
-        </h2>
-
-        <p class="section-text">
-
-            Blanco Elite™ está construido con una visión que va más allá
-            del presente.
-
-        </p>
-
-        <p class="section-text" style="margin-top: 25px;">
-
-            Nuestro objetivo es crear una organización empresarial sólida
-            que pueda crecer, evolucionar y mantenerse a través de las
-            generaciones, conservando los principios y la visión que
-            dieron origen al grupo.
-
-        </p>
-
-
-        <div style="
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        ">
-
-
-            <div style="
-                padding: 32px;
-                border: 1px solid #444;
-            ">
-
-                <div class="section-label" style="color: #999;">
-                    01 · Una visión que continúa
-                </div>
-
-                <p style="color: #ddd; font-size: 15px;">
-
-                    Creemos que construir una empresa también significa
-                    construir un futuro.
-
-                </p>
-
-                <p style="
-                    color: #bbb;
-                    font-size: 15px;
-                    margin-top: 15px;
-                ">
-
-                    Cada negocio, cada proyecto y cada nueva oportunidad
-                    forma parte de un propósito mayor: desarrollar una
-                    organización capaz de generar valor, crear oportunidades
-                    y dejar una base sólida para quienes vendrán después.
-
-                </p>
-
+            <div class="section-label">
+                03 · NUESTRO FUTURO
             </div>
 
+            <h2 class="section-title">
+                Legado Familiar
+            </h2>
 
-            <div style="
-                padding: 32px;
-                border: 1px solid #444;
-            ">
-
-                <div class="section-label" style="color: #999;">
-                    02 · Generaciones con propósito
-                </div>
-
-                <p style="color: #ddd; font-size: 15px;">
-
-                    El futuro de Blanco Elite™ dependerá de generaciones
-                    preparadas para comprender, desarrollar y proteger
-                    el legado construido antes de ellas.
-
-                </p>
-
-                <p style="
-                    color: #bbb;
-                    font-size: 15px;
-                    margin-top: 15px;
-                ">
-
-                    Queremos que cada nueva generación conozca la historia,
-                    los valores y la visión del grupo, y que tenga la
-                    oportunidad de contribuir a su evolución.
-
-                </p>
-
-            </div>
-
-
-            <div style="
-                padding: 32px;
-                border: 1px solid #444;
-            ">
-
-                <div class="section-label" style="color: #999;">
-                    03 · Crecer sin perder nuestra identidad
-                </div>
-
-                <p style="color: #ddd; font-size: 15px;">
-
-                    El crecimiento puede llevar a Blanco Elite™ hacia nuevos
-                    sectores, nuevos proyectos y nuevas oportunidades.
-
-                </p>
-
-                <p style="
-                    color: #bbb;
-                    font-size: 15px;
-                    margin-top: 15px;
-                ">
-
-                    Pero mientras el grupo evoluciona, nuestra identidad
-                    familiar permanece como parte fundamental de lo que somos.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div style="
-            margin-top: 50px;
-            padding: 40px;
-            border: 1px solid #555;
-            max-width: 900px;
-        ">
-
-            <p style="
-                font-size: 21px;
-                color: #fff;
-                line-height: 1.6;
-            ">
-
-                <strong>
-
-                    Construir hoy. Preparar el mañana.
-                    Dejar un legado para las generaciones que vienen.
-
-                </strong>
-
+            <p class="section-text">
+                Blanco Elite™ está construido con una visión que va más allá
+                del presente.
             </p>
 
-        </div>
+            <p class="section-text">
+                Nuestro objetivo es crear una organización empresarial sólida
+                que pueda crecer, evolucionar y mantenerse a través de las
+                generaciones, conservando los principios y la visión que
+                dieron origen al grupo.
+            </p>
 
-    </section>
+
+            <div class="business-grid">
+
+                <div class="legacy-card">
+
+                    <div class="section-label">
+                        01 · UNA VISIÓN QUE CONTINÚA
+                    </div>
+
+                    <h3>
+                        Construir un Futuro
+                    </h3>
+
+                    <p>
+                        Creemos que construir una empresa también significa
+                        construir un futuro.
+                    </p>
+
+                    <p>
+                        Cada negocio, cada proyecto y cada nueva oportunidad
+                        forma parte de un propósito mayor: desarrollar una
+                        organización capaz de generar valor, crear oportunidades
+                        y dejar una base sólida para quienes vendrán después.
+                    </p>
+
+                </div>
+
+
+                <div class="legacy-card">
+
+                    <div class="section-label">
+                        02 · GENERACIONES CON PROPÓSITO
+                    </div>
+
+                    <h3>
+                        Preparar a Quienes Vienen
+                    </h3>
+
+                    <p>
+                        El futuro de Blanco Elite™ dependerá de generaciones
+                        preparadas para comprender, desarrollar y proteger
+                        el legado construido antes de ellas.
+                    </p>
+
+                    <p>
+                        Queremos que cada nueva generación conozca la historia,
+                        los valores y la visión del grupo, y que tenga la
+                        oportunidad de contribuir a su evolución.
+                    </p>
+
+                </div>
+
+
+                <div class="legacy-card">
+
+                    <div class="section-label">
+                        03 · CRECER SIN PERDER NUESTRA IDENTIDAD
+                    </div>
+
+                    <h3>
+                        Evolucionar
+                    </h3>
+
+                    <p>
+                        El crecimiento puede llevar a Blanco Elite™ hacia
+                        nuevos sectores, nuevos proyectos y nuevas oportunidades.
+                    </p>
+
+                    <p>
+                        Pero mientras el grupo evoluciona, nuestra identidad
+                        familiar permanece como parte fundamental de lo que somos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="legacy-quote">
+
+                Construir hoy.<br>
+                Preparar el mañana.<br>
+                Dejar un legado para las generaciones que vienen.
+
+            </div>
+
+        </section>
+
+
         <!-- PROYECTOS -->
 
-    <section class="projects" id="proyectos">
+        <section class="projects" id="proyectos">
 
-        <div class="section-label">
-            04 · En desarrollo
-        </div>
-
-        <h2 class="section-title">
-            Proyectos
-        </h2>
-
-        <p class="section-text">
-
-            Blanco Elite™ continuará desarrollando nuevos proyectos,
-            empresas e iniciativas conforme evolucione el grupo.
-            Cada proyecto representa una nueva oportunidad para
-            construir, crecer y crear valor a largo plazo.
-
-        </p>
-
-
-        <div style="
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        ">
-
-
-            <div style="
-                padding: 32px;
-                background: #f5f5f3;
-                border: 1px solid #d8d8d5;
-            ">
-
-                <div class="business-number">
-                    01 · EN PLANIFICACIÓN
-                </div>
-
-                <h3 style="
-                    font-size: 22px;
-                    margin-bottom: 12px;
-                ">
-                    Nuevos Proyectos
-                </h3>
-
-                <p style="
-                    color: #666;
-                    font-size: 15px;
-                ">
-
-                    Blanco Elite™ se encuentra desarrollando nuevas ideas
-                    y oportunidades que podrán convertirse en futuros
-                    proyectos empresariales.
-
-                </p>
-
+            <div class="section-label">
+                04 · EN DESARROLLO
             </div>
 
+            <h2 class="section-title">
+                Proyectos
+            </h2>
 
-            <div style="
-                padding: 32px;
-                background: #f5f5f3;
-                border: 1px solid #d8d8d5;
-            ">
-
-                <div class="business-number">
-                    02 · EN DESARROLLO
-                </div>
-
-                <h3 style="
-                    font-size: 22px;
-                    margin-bottom: 12px;
-                ">
-                    Tecnología y Aplicaciones
-                </h3>
-
-                <p style="
-                    color: #666;
-                    font-size: 15px;
-                ">
-
-                    Desarrollo de aplicaciones y plataformas digitales
-                    como parte de la expansión tecnológica de
-                    Blanco Elite™.
-
-                </p>
-
-            </div>
-
-
-            <div style="
-                padding: 32px;
-                background: #f5f5f3;
-                border: 1px solid #d8d8d5;
-            ">
-
-                <div class="business-number">
-                    03 · FUTURO
-                </div>
-
-                <h3 style="
-                    font-size: 22px;
-                    margin-bottom: 12px;
-                ">
-                    Nuevas Empresas
-                </h3>
-
-                <p style="
-                    color: #666;
-                    font-size: 15px;
-                ">
-
-                    El grupo podrá incorporar nuevas empresas y
-                    proyectos en diferentes sectores conforme
-                    avance su crecimiento.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div style="
-            margin-top: 50px;
-            padding: 35px;
-            background: #111;
-            color: white;
-            max-width: 900px;
-        ">
-
-            <div class="section-label" style="color: #999;">
-                Una visión de crecimiento
-            </div>
-
-            <p style="
-                font-size: 19px;
-                color: #ddd;
-                line-height: 1.7;
-            ">
-
-                Los proyectos de hoy pueden convertirse en las empresas
-                de mañana. Blanco Elite™ continuará avanzando con una
-                visión empresarial de largo plazo.
-
+            <p class="section-text">
+                Blanco Elite™ continuará desarrollando nuevos proyectos,
+                empresas e iniciativas conforme evolucione el grupo.
+                Cada proyecto representa una nueva oportunidad para
+                construir, crecer y crear valor a largo plazo.
             </p>
 
-        </div>
 
-    </section>
+            <div class="business-grid">
 
+                <div class="project-card">
 
-    <!-- CONTACTO -->
+                    <div class="business-number">
+                        01 · EN PLANIFICACIÓN
+                    </div>
 
-    <section class="contact" id="contacto">
+                    <h3>
+                        Nuevos Proyectos
+                    </h3>
 
-        <div class="section-label">
-            05 · Contacto
-        </div>
+                    <p>
+                        Blanco Elite™ se encuentra desarrollando nuevas ideas
+                        y oportunidades que podrán convertirse en futuros
+                        proyectos empresariales.
+                    </p>
 
-        <h2 class="section-title">
-            Hablemos
-        </h2>
-
-        <p class="section-text">
-
-            Blanco Elite™ continúa creciendo y desarrollando nuevas
-            oportunidades desde El Salvador.
-
-        </p>
-
-
-        <div style="
-            margin-top: 45px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        ">
-
-
-            <div style="
-                padding: 30px;
-                background: white;
-                border: 1px solid #ddd;
-            ">
-
-                <div class="section-label">
-                    Ubicación
                 </div>
 
-                <h3 style="
-                    font-size: 21px;
-                    margin-bottom: 10px;
-                ">
-                    El Salvador
-                </h3>
 
-                <p style="
-                    color: #666;
-                    font-size: 15px;
-                ">
+                <div class="project-card">
 
-                    Grupo empresarial familiar con base
-                    en El Salvador.
+                    <div class="business-number">
+                        02 · EN DESARROLLO
+                    </div>
 
+                    <h3>
+                        Tecnología y Aplicaciones
+                    </h3>
+
+                    <p>
+                        Desarrollo de aplicaciones y plataformas digitales
+                        como parte de la expansión tecnológica de
+                        Blanco Elite™.
+                    </p>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="business-number">
+                        03 · FUTURO
+                    </div>
+
+                    <h3>
+                        Nuevas Empresas
+                    </h3>
+
+                    <p>
+                        El grupo podrá incorporar nuevas empresas y
+                        proyectos en diferentes sectores conforme
+                        avance su crecimiento.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dark-panel">
+
+                <div class="section-label">
+                    UNA VISIÓN DE CRECIMIENTO
+                </div>
+
+                <p>
+                    Los proyectos de hoy pueden convertirse en las empresas
+                    de mañana. Blanco Elite™ continuará avanzando con una
+                    visión empresarial de largo plazo.
                 </p>
 
             </div>
 
+        </section>
 
-            <div style="
-                padding: 30px;
-                background: white;
-                border: 1px solid #ddd;
-            ">
 
-                <div class="section-label">
-                    Próximamente
-                </div>
+        <!-- CONTACTO -->
 
-                <h3 style="
-                    font-size: 21px;
-                    margin-bottom: 10px;
-                ">
-                    Información de contacto
-                </h3>
+        <section class="contact" id="contacto">
 
-                <p style="
-                    color: #666;
-                    font-size: 15px;
-                ">
-
-                    Los canales oficiales de contacto de
-                    Blanco Elite™ serán incorporados próximamente.
-
-                </p>
-
+            <div class="section-label">
+                05 · CONTACTO
             </div>
 
-        </div>
+            <h2 class="section-title">
+                Hablemos
+            </h2>
 
-
-        <div style="
-            margin-top: 45px;
-            padding: 35px;
-            background: #111;
-            color: white;
-            max-width: 900px;
-        ">
-
-            <div class="section-label" style="color: #999;">
-                Blanco Elite™
-            </div>
-
-            <p style="
-                font-size: 20px;
-                color: #ddd;
-                line-height: 1.6;
-            ">
-
-                Construyendo un legado.
-                Creando oportunidades.
-                Pensando en generaciones.
-
+            <p class="section-text">
+                Blanco Elite™ continúa creciendo y desarrollando nuevas
+                oportunidades desde El Salvador.
             </p>
 
-        </div>
 
-    </section>
+            <div class="business-grid">
+
+                <div class="contact-card">
+
+                    <div class="section-label">
+                        UBICACIÓN
+                    </div>
+
+                    <h3>
+                        El Salvador
+                    </h3>
+
+                    <p>
+                        Grupo empresarial familiar con base
+                        en El Salvador.
+                    </p>
+
+                </div>
 
 
-</main>
+                <div class="contact-card">
+
+                    <div class="section-label">
+                        PRÓXIMAMENTE
+                    </div>
+
+                    <h3>
+                        Información de Contacto
+                    </h3>
+
+                    <p>
+                        Los canales oficiales de contacto de
+                        Blanco Elite™ serán incorporados próximamente.
+                    </p>
+
+                </div>
+
+            </div>
 
 
-<!-- PIE DE PÁGINA -->
+            <div class="dark-panel">
 
-<footer>
+                <div class="section-label">
+                    BLANCO ELITE™
+                </div>
 
-    © 2026 Blanco Elite™ · Grupo Empresarial Familiar · El Salvador
+                <p>
+                    Construyendo un legado.<br>
+                    Creando oportunidades.<br>
+                    Pensando en generaciones.
+                </p>
 
-</footer>
+            </div>
 
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 Blanco Elite™ · Grupo Empresarial Familiar · El Salvador
+    </footer>
 
 </body>
 
