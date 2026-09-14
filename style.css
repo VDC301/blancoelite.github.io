@@ -1,6 +1,6 @@
 /* =========================================================
    BLANCO ELITE™
-   Una familia. Una visión. Un legado.
+   STYLE.CSS
    ========================================================= */
 
 :root {
@@ -35,11 +35,6 @@
     --container: 1280px;
 }
 
-
-/* =========================================================
-   RESET
-   ========================================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -64,7 +59,6 @@ body {
 
     background: var(--white);
     color: var(--black);
-
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -101,7 +95,6 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     z-index: 1000;
 
@@ -126,8 +119,7 @@ a {
 }
 
 .site-header.scrolled {
-    background:
-        rgba(5, 8, 13, 0.99);
+    background: rgba(5, 8, 13, 0.99);
 
     box-shadow:
         0 12px 40px
@@ -137,7 +129,6 @@ a {
 .header-container {
     width: calc(100% - 60px);
     max-width: 1420px;
-
     min-height: var(--header-height);
 
     margin: 0 auto;
@@ -199,8 +190,7 @@ a {
 
     padding: 8px 0;
 
-    transition:
-        color 0.25s ease;
+    transition: color 0.25s ease;
 }
 
 .main-nav a::after {
@@ -221,8 +211,7 @@ a {
             var(--gold-light)
         );
 
-    transition:
-        width 0.25s ease;
+    transition: width 0.25s ease;
 }
 
 .main-nav a:hover,
@@ -299,15 +288,12 @@ a {
 
 .section {
     position: relative;
-
-    padding:
-        120px 30px;
+    padding: 120px 30px;
 }
 
 .section-inner {
     width: 100%;
     max-width: var(--container);
-
     margin: 0 auto;
 }
 
@@ -346,7 +332,6 @@ a {
 
 .section-heading {
     max-width: 850px;
-
     margin-bottom: 65px;
 }
 
@@ -724,8 +709,7 @@ a {
 
     opacity: 0;
 
-    transition:
-        opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .business-card:hover::before,
@@ -969,8 +953,7 @@ a {
 
     justify-content: space-between;
 
-    backdrop-filter:
-        blur(8px);
+    backdrop-filter: blur(8px);
 
     transition:
         transform 0.3s ease,
@@ -1049,7 +1032,7 @@ a {
 
 
 /* =========================================================
-   TIMELINE
+   TIMELINE DESKTOP
    ========================================================= */
 
 .timeline {
@@ -1062,35 +1045,45 @@ a {
 
     gap: 0;
 
-    margin-top: 25px;
+    margin-top: 10px;
 
-    padding-top: 48px;
+    padding-top: 30px;
+
+    padding-bottom: 20px;
 }
+
+
+/* Línea dorada continua */
 
 .timeline::before {
     content: "";
 
     position: absolute;
 
-    top: 66px;
+    top: 45px;
 
-    left: 5%;
-    right: 5%;
+    left: 10%;
+    right: 10%;
 
     height: 2px;
 
     background:
         linear-gradient(
             90deg,
-            transparent,
             var(--gold-dark),
-            var(--gold-light),
-            var(--gold-dark),
-            transparent
+            var(--gold-light) 25%,
+            var(--gold-light) 50%,
+            var(--gold-light) 75%,
+            var(--gold-dark)
         );
 
-    opacity: 0.75;
+    opacity: 0.9;
+
+    z-index: 0;
 }
+
+
+/* Cada etapa */
 
 .timeline-item {
     position: relative;
@@ -1100,18 +1093,23 @@ a {
         45px;
 
     text-align: center;
+
+    z-index: 1;
 }
+
+
+/* Punto */
 
 .timeline-item::before {
     content: "";
 
     position: absolute;
 
-    top: 10px;
+    top: 8px;
     left: 50%;
 
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
 
     transform:
         translateX(-50%);
@@ -1125,30 +1123,42 @@ a {
 
     border:
         3px solid
-        var(--white);
+        #f8f9fb;
 
     border-radius: 50%;
 
-    z-index: 2;
+    z-index: 3;
 
     box-shadow:
-        0 0 0 6px
+        0 0 0 5px
         rgba(200, 162, 74, 0.12);
 }
+
+
+/* Nombre de etapa */
 
 .timeline-number {
     display: block;
 
+    position: relative;
+
     color: var(--gold-dark);
 
-    font-size: 0.72rem;
+    font-size: 0.78rem;
 
     font-weight: 900;
 
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
 
-    margin-bottom: 38px;
+    margin-bottom: 34px;
+
+    padding-bottom: 4px;
+
+    z-index: 4;
 }
+
+
+/* Título */
 
 .timeline-item h3 {
     color: var(--black);
@@ -1158,6 +1168,8 @@ a {
     font-weight: 900;
 
     letter-spacing: 0.03em;
+
+    margin-top: 4px;
 
     margin-bottom: 10px;
 }
@@ -1176,7 +1188,7 @@ a {
 
 
 /* =========================================================
-   SEGUNDA PARTE DEL TIEMPO
+   FUTURO
    ========================================================= */
 
 .future-section {
@@ -1776,12 +1788,12 @@ a {
 
         overflow-x: auto;
 
-        padding-bottom: 20px;
+        padding-bottom: 25px;
     }
 
     .timeline::before {
-        left: 4%;
-        right: 4%;
+        left: 8%;
+        right: 8%;
     }
 
     .future-grid {
@@ -1925,34 +1937,103 @@ a {
         grid-template-columns: 1fr;
     }
 
+
+    /* =====================================================
+       TIMELINE MOBILE
+       ===================================================== */
+
     .timeline {
         display: flex;
 
         overflow-x: auto;
 
         padding:
-            48px 0 30px;
+            20px 0 35px;
+
+        margin-top: 5px;
 
         margin-left: -5px;
         margin-right: -5px;
 
         scroll-snap-type: x mandatory;
+
+        scrollbar-width: thin;
+
+        scrollbar-color:
+            var(--gold-dark)
+            rgba(18, 52, 90, 0.08);
     }
 
     .timeline::before {
-        left: 30px;
-        right: 30px;
+        top: 35px;
+
+        left: 35px;
+        right: 35px;
+
+        width: auto;
+
+        height: 2px;
+
+        background:
+            linear-gradient(
+                90deg,
+                var(--gold-dark),
+                var(--gold-light),
+                var(--gold-light),
+                var(--gold-dark)
+            );
+
+        opacity: 0.9;
     }
 
     .timeline-item {
         flex:
-            0 0 230px;
+            0 0 235px;
 
         scroll-snap-align: start;
 
         padding:
             0 18px
             45px;
+
+        text-align: center;
+    }
+
+    .timeline-item::before {
+        top: 28px;
+
+        width: 15px;
+        height: 15px;
+
+        border-width: 3px;
+    }
+
+    .timeline-number {
+        position: relative;
+
+        top: -2px;
+
+        margin-bottom: 48px;
+
+        padding-bottom: 3px;
+
+        font-size: 0.76rem;
+
+        letter-spacing: 0.13em;
+
+        white-space: nowrap;
+    }
+
+    .timeline-item h3 {
+        margin-top: 0;
+
+        font-size: 1.12rem;
+    }
+
+    .timeline-item p {
+        font-size: 0.91rem;
+
+        max-width: 200px;
     }
 
     .future-section {
@@ -2037,6 +2118,28 @@ a {
         min-height: 200px;
     }
 
+    .timeline-item {
+        flex-basis: 220px;
+
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .timeline::before {
+        left: 28px;
+        right: 28px;
+    }
+
+    .timeline-item::before {
+        top: 28px;
+    }
+
+    .timeline-number {
+        margin-bottom: 47px;
+
+        font-size: 0.73rem;
+    }
+
     .legacy {
         padding:
             100px 20px;
@@ -2068,13 +2171,17 @@ a {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
+
         scroll-behavior: auto !important;
     }
 
     .reveal {
         opacity: 1;
+
         transform: none;
     }
 }
