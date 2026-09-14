@@ -236,7 +236,7 @@ section {
 }
 
 /* =========================
-   CARDS
+   BUSINESS CARDS
 ========================= */
 
 .business-grid {
@@ -487,6 +487,7 @@ section {
 ========================= */
 
 @media (max-width: 1100px) {
+
     .header-container {
         gap: 25px;
     }
@@ -515,6 +516,7 @@ section {
 ========================= */
 
 @media (max-width: 760px) {
+
     html {
         scroll-padding-top: 215px;
     }
@@ -548,13 +550,14 @@ section {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 8px 8px;
+        gap: 8px;
         overflow: visible;
         white-space: normal;
         align-items: center;
     }
 
     .main-nav a {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -567,15 +570,17 @@ section {
     }
 
     /*
-       MOBILE:
-       La línea dorada aparece ÚNICAMENTE
-       en el enlace que tiene .active.
-       El hover NO activa la línea.
+       MISMO COMPORTAMIENTO QUE ESCRITORIO
+
+       La línea empieza en 0.
+       Solamente .active puede mostrarla.
+       No usamos hover para activarla en móvil.
     */
 
     .main-nav a::after {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        bottom: 0;
+        transform: none;
         width: 0;
         height: 2px;
     }
@@ -585,7 +590,15 @@ section {
     }
 
     .main-nav a.active::after {
-        width: 70%;
+        width: 100%;
+    }
+
+    .main-nav a:hover {
+        color: rgba(255, 255, 255, 0.78);
+    }
+
+    .main-nav a.active {
+        color: var(--white);
     }
 
     .hero {
@@ -632,6 +645,7 @@ section {
 ========================= */
 
 @media (max-width: 390px) {
+
     html {
         scroll-padding-top: 225px;
     }
@@ -665,12 +679,17 @@ section {
         padding: 4px 1px;
     }
 
+    /*
+       EXACTAMENTE EL MISMO SISTEMA:
+       solo el elemento activo tiene línea.
+    */
+
     .main-nav a:hover::after {
         width: 0;
     }
 
     .main-nav a.active::after {
-        width: 65%;
+        width: 100%;
     }
 
     .hero {
