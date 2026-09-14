@@ -1,1067 +1,1265 @@
-<!DOCTYPE html>
-<html lang="es">
+/* =========================================
+   BLANCO ELITE™
+   ESTILO PRINCIPAL DEL SITIO
+   ========================================= */
+
+:root {
+    --black: #05070b;
+    --dark: #0a1020;
+    --blue: #101d38;
+    --blue-light: #17294d;
+
+    --gold: #d4af37;
+    --gold-light: #f0d77a;
+
+    --white: #ffffff;
+    --soft-white: #f4f5f7;
+
+    --gray: #c9ced8;
+    --dark-gray: #707887;
+
+    --border-light: rgba(5, 7, 11, 0.10);
+    --border-dark: rgba(255, 255, 255, 0.12);
+
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    --shadow-dark: 0 25px 60px rgba(0, 0, 0, 0.30);
+
+    --max-width: 1200px;
+}
+
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================
+   UTILIDADES
+   ========================================= */
+
+.container {
+    width: min(90%, var(--max-width));
+    margin: 0 auto;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-<head>
+    padding: 22px 0;
+
+    background: rgba(5, 7, 11, 0.20);
+    backdrop-filter: blur(10px);
 
-    <meta charset="UTF-8">
+    border-bottom: 1px solid transparent;
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    transition:
+        background 0.35s ease,
+        padding 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+header.scrolled {
+    padding: 14px 0;
+    background: rgba(5, 7, 11, 0.94);
+    border-bottom-color: rgba(212, 175, 55, 0.20);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+}
+
+.navbar {
+    width: min(90%, var(--max-width));
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
 
-    <meta
-        name="description"
-        content="Blanco Elite™ — Family Business Group. Una familia. Una visión. Un legado."
-    >
+.logo {
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
 
-    <title>Blanco Elite™ | Family Business Group</title>
+.logo span {
+    color: var(--gold);
+}
 
-    <link rel="stylesheet" href="style.css">
+nav ul {
+    list-style: none;
 
-</head>
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+}
 
+nav a {
+    position: relative;
 
-<body>
+    color: rgba(255, 255, 255, 0.80);
 
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
 
-    <!-- =========================================
-         HEADER
-         ========================================= -->
+    transition:
+        color 0.3s ease;
+}
 
-    <header>
+nav a::after {
+    content: "";
 
-        <div class="nav-container">
+    position: absolute;
+    left: 0;
+    bottom: -8px;
 
-            <a href="#inicio" class="logo">
-                BLANCO <span>ELITE™</span>
-            </a>
+    width: 0;
+    height: 2px;
 
+    background: var(--gold);
 
-            <nav>
+    transition:
+        width 0.3s ease;
+}
 
-                <a href="#inicio">Inicio</a>
+nav a:hover,
+nav a.active {
+    color: var(--white);
+}
 
-                <a href="#nosotros">
-                    Quiénes Somos
-                </a>
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
 
-                <a href="#ecosistema">
-                    Ecosistema
-                </a>
 
-                <a href="#vision">
-                    Nuestra Visión
-                </a>
+/* =========================================
+   HERO
+   ========================================= */
 
-                <a href="#tiempo">
-                    En el Tiempo
-                </a>
+.hero {
+    min-height: 100vh;
 
-                <a href="#legado">
-                    Legado
-                </a>
+    display: flex;
+    align-items: center;
 
-                <a href="#proyectos">
-                    Proyectos
-                </a>
+    position: relative;
 
-                <a href="#contacto">
-                    Contacto
-                </a>
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(212, 175, 55, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #05070b 0%,
+            #0a1020 55%,
+            #101d38 100%
+        );
 
-            </nav>
+    color: var(--white);
 
-        </div>
+    overflow: hidden;
+}
 
-    </header>
+.hero::before {
+    content: "";
 
+    position: absolute;
 
+    width: 600px;
+    height: 600px;
 
-    <!-- =========================================
-         HERO
-         ========================================= -->
+    right: -250px;
+    top: 50%;
 
-    <section
-        id="inicio"
-        class="hero"
-    >
+    transform: translateY(-50%);
 
-        <div class="hero-content reveal">
+    border-radius: 50%;
 
-            <div class="hero-label">
-                FAMILY BUSINESS GROUP
-            </div>
+    border: 1px solid rgba(212, 175, 55, 0.10);
 
-            <h1>
-                BLANCO
-                <span>ELITE™</span>
-            </h1>
+    box-shadow:
+        0 0 0 80px rgba(212, 175, 55, 0.02),
+        0 0 0 160px rgba(212, 175, 55, 0.015);
+}
 
-            <p class="hero-subtitle">
-                Una familia. Una visión. Un legado.
-            </p>
+.hero-content {
+    position: relative;
+    z-index: 2;
 
-            <p class="hero-description">
+    width: min(90%, 1000px);
+    margin: 0 auto;
 
-                Construimos empresas, desarrollamos ideas
-                y creamos oportunidades con una visión
-                pensada para el presente y las generaciones
-                que vendrán.
+    padding-top: 90px;
+}
 
-            </p>
+.hero-eyebrow {
+    display: inline-block;
 
+    margin-bottom: 20px;
 
-            <a
-                href="#ecosistema"
-                class="hero-button"
-            >
-                EXPLORAR NUESTRO ECOSISTEMA
-                <span>→</span>
-            </a>
+    color: var(--gold);
 
-        </div>
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
 
-    </section>
+.hero h1 {
+    max-width: 850px;
 
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
 
+    letter-spacing: -4px;
 
-    <!-- =========================================
-         QUIÉNES SOMOS
-         ========================================= -->
+    margin-bottom: 28px;
 
-    <section
-        id="nosotros"
-        class="about-section"
-    >
+    animation: heroTitle 1s ease both;
+}
 
-        <div class="section-container reveal">
+.hero h1 span {
+    color: var(--gold);
+}
 
-            <div class="section-number">
-                01
-            </div>
+.hero p {
+    max-width: 650px;
 
-            <div class="section-label">
-                QUIÉNES SOMOS
-            </div>
+    color: var(--gray);
 
-            <h2>
-                Una visión construida
-                para durar.
-            </h2>
+    font-size: clamp(1rem, 2vw, 1.25rem);
 
-            <p>
+    margin-bottom: 38px;
 
-                Blanco Elite™ nace con una idea sencilla:
-                construir algo que pueda crecer con el tiempo
-                y permanecer dentro de la familia.
+    animation: heroText 1s ease 0.2s both;
+}
 
-            </p>
+.hero-line {
+    width: 80px;
+    height: 2px;
 
-            <p>
+    background: var(--gold);
 
-                Nuestro objetivo es desarrollar diferentes
-                empresas y proyectos bajo una misma visión,
-                creando oportunidades, patrimonio y crecimiento
-                para las generaciones futuras.
+    margin-bottom: 24px;
+}
 
-            </p>
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
 
-        </div>
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    </section>
+    min-height: 48px;
 
+    padding: 0 24px;
 
+    border: 1px solid transparent;
 
-    <!-- =========================================
-         ECOSISTEMA
-         ========================================= -->
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
-    <section
-        id="ecosistema"
-        class="ecosystem-section"
-    >
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
-        <div class="section-container reveal">
+.btn-primary {
+    background: var(--gold);
+    color: var(--black);
+}
 
-            <div class="section-number">
-                02
-            </div>
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background: var(--gold-light);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.22);
+}
 
-            <div class="section-label">
-                NUESTRO ECOSISTEMA
-            </div>
+.btn-outline {
+    border-color: rgba(255, 255, 255, 0.30);
+    color: var(--white);
+}
 
-            <h2>
-                Diferentes empresas.
-                Una misma visión.
-            </h2>
+.btn-outline:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    color: var(--gold);
+}
 
-            <p class="section-intro">
 
-                Blanco Elite™ está diseñado como un ecosistema
-                empresarial donde cada área puede crecer,
-                desarrollarse y convertirse en una empresa
-                independiente.
+/* =========================================
+   SECCIONES GENERALES
+   ========================================= */
 
-            </p>
+.section {
+    padding: 110px 0;
+}
 
+.section-header {
+    max-width: 760px;
+    margin-bottom: 60px;
+}
 
+.section-number {
+    display: block;
 
-            <div class="business-grid">
+    margin-bottom: 12px;
 
+    color: var(--gold);
 
-                <!-- =================================
-                     TECNOLOGÍA
-                     ================================= -->
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
 
-                <article
-                    class="business-card reveal"
-                    data-business="tecnologia"
-                >
+.section-title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
 
-                    <div class="business-number">
-                        01
-                    </div>
+    margin-bottom: 20px;
+}
 
-                    <h3>
-                        Tecnología &
-                        Aplicaciones
-                    </h3>
+.section-subtitle {
+    color: var(--dark-gray);
+    font-size: 1.05rem;
+    max-width: 700px;
+}
 
-                    <p>
 
-                        Aplicaciones, plataformas,
-                        software y soluciones digitales
-                        desarrolladas para nuestro
-                        ecosistema.
+/* =========================================
+   QUIÉNES SOMOS
+   ========================================= */
 
-                    </p>
+.about {
+    background: var(--white);
+}
 
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
 
-                    <a
-                        href="tecnologia.html"
-                        class="business-button"
-                        onclick="event.stopPropagation();"
-                    >
-                        Explorar área
-                        <span>→</span>
-                    </a>
+.about-text p {
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+}
 
+.about-highlight {
+    padding: 30px;
 
-                    <div class="business-details">
+    border-left: 3px solid var(--gold);
 
-                        <strong>
-                            Tecnología & Aplicaciones
-                        </strong>
+    background: var(--soft-white);
 
-                        <p>
+    margin-top: 30px;
+}
 
-                            Desarrollo de aplicaciones,
-                            plataformas digitales y
-                            herramientas tecnológicas
-                            para futuros proyectos de
-                            Blanco Elite™.
+.about-highlight strong {
+    display: block;
 
-                        </p>
+    color: var(--black);
 
-                        <span class="business-status">
-                            EN DESARROLLO
-                        </span>
+    font-size: 1.1rem;
 
-                    </div>
+    margin-bottom: 8px;
+}
 
-                </article>
+.about-highlight span {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
 
 
+/* =========================================
+   ECOSISTEMA
+   ========================================= */
 
-                <!-- =================================
-                     TRANSPORTE
-                     ================================= -->
+.ecosystem {
+    background: #eef0f4;
+}
 
-                <article
-                    class="business-card reveal"
-                    data-business="transporte"
-                >
+.business-grid {
+    display: grid;
 
-                    <div class="business-number">
-                        02
-                    </div>
+    grid-template-columns: repeat(3, 1fr);
 
-                    <h3>
-                        Transporte &
-                        Movilidad
-                    </h3>
+    gap: 22px;
+}
 
-                    <p>
+.business-card {
+    position: relative;
 
-                        Servicios de transporte,
-                        movilidad, vehículos y
-                        soluciones relacionadas.
+    min-height: 300px;
 
-                    </p>
+    padding: 34px;
 
+    background: var(--white);
 
-                    <button
-                        class="business-button"
-                        type="button"
-                    >
-                        Explorar área
-                        <span>→</span>
-                    </button>
+    border: 1px solid var(--border-light);
 
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
 
-                    <div class="business-details">
+    cursor: pointer;
 
-                        <strong>
-                            Transporte & Movilidad
-                        </strong>
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
 
-                        <p>
+.business-card::before {
+    content: "";
 
-                            Una futura división enfocada
-                            en movilidad, transporte y
-                            servicios relacionados.
+    position: absolute;
 
-                        </p>
+    left: 0;
+    top: 0;
 
-                        <span class="business-status">
-                            PRÓXIMAMENTE
-                        </span>
+    width: 0;
+    height: 3px;
 
-                    </div>
+    background: var(--gold);
 
-                </article>
+    transition: width 0.35s ease;
+}
 
+.business-card:hover {
+    transform: translateY(-8px);
 
+    border-color: rgba(212, 175, 55, 0.45);
 
-                <!-- =================================
-                     COMERCIO
-                     ================================= -->
+    box-shadow: var(--shadow);
+}
 
-                <article
-                    class="business-card reveal"
-                    data-business="comercio"
-                >
+.business-card:hover::before {
+    width: 100%;
+}
 
-                    <div class="business-number">
-                        03
-                    </div>
+.business-number {
+    display: block;
 
-                    <h3>
-                        Comercio &
-                        Servicios
-                    </h3>
+    margin-bottom: 45px;
 
-                    <p>
+    color: var(--gold);
 
-                        Negocios comerciales,
-                        servicios y oportunidades
-                        orientadas a las familias
-                        y comunidades.
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
 
-                    </p>
+.business-card h3 {
+    margin-bottom: 12px;
 
+    font-size: 1.35rem;
+}
 
-                    <button
-                        class="business-button"
-                        type="button"
-                    >
-                        Explorar área
-                        <span>→</span>
-                    </button>
+.business-card p {
+    color: var(--dark-gray);
 
+    font-size: 0.9rem;
+}
 
-                    <div class="business-details">
 
-                        <strong>
-                            Comercio & Servicios
-                        </strong>
+/* =========================================
+   BOTÓN DE NEGOCIO
+   ========================================= */
 
-                        <p>
+.business-button {
+    margin-top: 22px;
 
-                            Desarrollo de negocios
-                            comerciales y servicios
-                            destinados a crear valor
-                            para nuestros clientes.
+    border: 0;
 
-                        </p>
+    background: transparent;
 
-                        <span class="business-status">
-                            PRÓXIMAMENTE
-                        </span>
+    color: var(--gold);
 
-                    </div>
+    font-family: inherit;
 
-                </article>
+    font-size: 0.78rem;
+    font-weight: 700;
 
+    letter-spacing: 1px;
 
+    cursor: pointer;
+    padding: 0;
 
-                <!-- =================================
-                     BIENES RAÍCES
-                     ================================= -->
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
 
-                <article
-                    class="business-card reveal"
-                    data-business="bienes-raices"
-                >
+.business-button span {
+    display: inline-block;
 
-                    <div class="business-number">
-                        04
-                    </div>
+    margin-left: 6px;
 
-                    <h3>
-                        Bienes Raíces
-                    </h3>
+    transition:
+        transform 0.3s ease;
+}
 
-                    <p>
+.business-card:hover .business-button {
+    color: #a98920;
+}
 
-                        Desarrollo, administración
-                        y construcción de patrimonio
-                        a largo plazo.
+.business-card:hover .business-button span {
+    transform: translateX(5px);
+}
 
-                    </p>
 
+/* =========================================
+   DETALLES DE NEGOCIO
+   ========================================= */
 
-                    <button
-                        class="business-button"
-                        type="button"
-                    >
-                        Explorar área
-                        <span>→</span>
-                    </button>
+.business-details {
+    max-height: 0;
 
+    opacity: 0;
 
-                    <div class="business-details">
+    overflow: hidden;
 
-                        <strong>
-                            Bienes Raíces
-                        </strong>
+    margin-top: 0;
+    padding-top: 0;
 
-                        <p>
+    border-top: 1px solid transparent;
 
-                            Proyectos inmobiliarios,
-                            propiedades y activos
-                            destinados a construir
-                            patrimonio familiar.
+    transition:
+        max-height 0.45s ease,
+        opacity 0.35s ease,
+        margin-top 0.35s ease,
+        padding-top 0.35s ease,
+        border-color 0.35s ease;
+}
 
-                        </p>
+.business-card.selected .business-details {
+    max-height: 250px;
 
-                        <span class="business-status">
-                            PLANIFICADO
-                        </span>
+    opacity: 1;
 
-                    </div>
+    margin-top: 25px;
+    padding-top: 22px;
 
-                </article>
+    border-top-color: rgba(212, 175, 55, 0.25);
+}
 
+.business-details strong {
+    display: block;
 
+    margin-bottom: 10px;
 
-                <!-- =================================
-                     ENTRETENIMIENTO
-                     ================================= -->
+    color: var(--gold);
 
-                <article
-                    class="business-card reveal"
-                    data-business="turismo"
-                >
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
 
-                    <div class="business-number">
-                        05
-                    </div>
+.business-details p {
+    color: var(--dark-gray);
 
-                    <h3>
-                        Entretenimiento &
-                        Turismo
-                    </h3>
+    font-size: 0.88rem;
 
-                    <p>
+    margin-bottom: 15px;
+}
 
-                        Experiencias, destinos,
-                        entretenimiento y proyectos
-                        familiares.
+.business-status {
+    display: inline-block;
 
-                    </p>
+    padding: 6px 10px;
 
+    border: 1px solid rgba(212, 175, 55, 0.35);
 
-                    <button
-                        class="business-button"
-                        type="button"
-                    >
-                        Explorar área
-                        <span>→</span>
-                    </button>
+    border-radius: 3px;
 
+    color: var(--gold);
 
-                    <div class="business-details">
+    font-size: 0.7rem;
+    font-weight: 700;
 
-                        <strong>
-                            Entretenimiento & Turismo
-                        </strong>
+    letter-spacing: 0.7px;
+}
 
-                        <p>
+.business-card.selected {
+    transform: translateY(-10px);
 
-                            Creación de experiencias,
-                            destinos familiares,
-                            entretenimiento y futuros
-                            proyectos turísticos.
+    border-color: var(--gold);
 
-                        </p>
+    box-shadow:
+        0 25px 55px rgba(212, 175, 55, 0.18);
+}
 
-                        <span class="business-status">
-                            PLANIFICADO
-                        </span>
+.business-card.selected .business-button {
+    color: var(--gold-light);
+}
 
-                    </div>
+.business-card.selected .business-button span {
+    transform: rotate(90deg);
+}
 
-                </article>
 
+/* =========================================
+   CÓMO CONSTRUIMOS
+   ========================================= */
 
+.construction {
+    background: var(--dark);
+    color: var(--white);
+}
 
-                <!-- =================================
-                     MEDIA
-                     ================================= -->
+.construction .section-subtitle {
+    color: var(--gray);
+}
 
-                <article
-                    class="business-card reveal"
-                    data-business="media"
-                >
+.timeline {
+    display: grid;
 
-                    <div class="business-number">
-                        06
-                    </div>
+    grid-template-columns: repeat(5, 1fr);
 
-                    <h3>
-                        Media &
-                        Entertainment
-                    </h3>
+    position: relative;
 
-                    <p>
+    margin-top: 70px;
+}
 
-                        Música, cine, contenido,
-                        entretenimiento y proyectos
-                        creativos.
+.timeline::before {
+    content: "";
 
-                    </p>
+    position: absolute;
 
+    top: 31px;
+    left: 10%;
+    right: 10%;
 
-                    <button
-                        class="business-button"
-                        type="button"
-                    >
-                        Explorar área
-                        <span>→</span>
-                    </button>
+    height: 1px;
 
+    background: rgba(212, 175, 55, 0.45);
+}
 
-                    <div class="business-details">
+.timeline-item {
+    position: relative;
 
-                        <strong>
-                            Media & Entertainment
-                        </strong>
+    text-align: center;
 
-                        <p>
+    padding: 0 12px;
+}
 
-                            Desarrollo futuro de proyectos
-                            relacionados con música, cine,
-                            contenido y entretenimiento.
+.timeline-number {
+    position: relative;
+    z-index: 2;
 
-                        </p>
+    width: 64px;
+    height: 64px;
 
-                        <span class="business-status">
-                            PLANIFICADO
-                        </span>
+    margin: 0 auto 25px;
 
-                    </div>
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-                </article>
+    border: 1px solid var(--gold);
 
+    border-radius: 50%;
 
-            </div>
+    background: var(--dark);
 
-        </div>
+    color: var(--gold);
 
-    </section>
+    font-size: 0.75rem;
+    font-weight: 800;
+}
 
+.timeline-item h3 {
+    margin-bottom: 10px;
 
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
 
-    <!-- =========================================
-         VISIÓN
-         ========================================= -->
+.timeline-item p {
+    color: var(--gray);
 
-    <section
-        id="vision"
-        class="vision-section"
-    >
+    font-size: 0.82rem;
+}
 
-        <div class="section-container reveal">
 
-            <div class="section-number">
-                03
-            </div>
+/* =========================================
+   BLANCO ELITE EN EL TIEMPO
+   ========================================= */
 
-            <div class="section-label">
-                NUESTRA VISIÓN
-            </div>
+.time-section {
+    background: var(--soft-white);
+}
 
-            <h2>
-                De una idea
-                a un legado.
-            </h2>
+.time-grid {
+    display: grid;
 
+    grid-template-columns: repeat(4, 1fr);
 
-            <div class="timeline">
+    gap: 2px;
 
+    background: rgba(5, 7, 11, 0.08);
 
-                <div class="timeline-item">
+    border: 1px solid rgba(5, 7, 11, 0.08);
+}
 
-                    <div class="timeline-number">
-                        01
-                    </div>
+.time-card {
+    padding: 45px 30px;
 
-                    <h3>
-                        IDEA
-                    </h3>
+    background: var(--white);
 
-                    <p>
-                        Identificamos oportunidades.
-                    </p>
+    min-height: 250px;
 
-                </div>
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
 
+.time-card:hover {
+    transform: translateY(-6px);
 
-                <div class="timeline-item">
+    background: #fffdf7;
+}
 
-                    <div class="timeline-number">
-                        02
-                    </div>
+.time-card span {
+    display: block;
 
-                    <h3>
-                        DESARROLLO
-                    </h3>
+    margin-bottom: 45px;
 
-                    <p>
-                        Convertimos ideas en proyectos.
-                    </p>
+    color: var(--gold);
 
-                </div>
+    font-size: 0.72rem;
+    font-weight: 800;
 
+    letter-spacing: 2px;
+}
 
-                <div class="timeline-item">
+.time-card h3 {
+    margin-bottom: 12px;
 
-                    <div class="timeline-number">
-                        03
-                    </div>
+    font-size: 1.25rem;
+}
 
-                    <h3>
-                        EMPRESA
-                    </h3>
+.time-card p {
+    color: var(--dark-gray);
 
-                    <p>
-                        Creamos negocios reales.
-                    </p>
+    font-size: 0.9rem;
+}
 
-                </div>
+.time-statement {
+    margin-top: 50px;
 
+    text-align: center;
 
-                <div class="timeline-item">
+    color: var(--black);
 
-                    <div class="timeline-number">
-                        04
-                    </div>
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
 
-                    <h3>
-                        CRECIMIENTO
-                    </h3>
+    font-weight: 700;
 
-                    <p>
-                        Expandimos nuestras oportunidades.
-                    </p>
+    letter-spacing: -1px;
+}
 
-                </div>
+.time-statement span {
+    color: var(--gold);
+}
 
 
-                <div class="timeline-item">
+/* =========================================
+   LEGADO
+   ========================================= */
 
-                    <div class="timeline-number">
-                        05
-                    </div>
+.legacy {
+    background:
+        linear-gradient(
+            135deg,
+            #070a11 0%,
+            #101d38 100%
+        );
 
-                    <h3>
-                        LEGADO
-                    </h3>
+    color: var(--white);
+}
 
-                    <p>
-                        Construimos para las generaciones.
-                    </p>
+.legacy-grid {
+    display: grid;
 
-                </div>
+    grid-template-columns: 1.1fr 0.9fr;
 
+    gap: 80px;
 
-            </div>
+    align-items: center;
+}
 
-        </div>
+.legacy-text p {
+    color: var(--gray);
 
-    </section>
+    margin-bottom: 20px;
 
+    max-width: 700px;
+}
 
+.legacy-quote {
+    position: relative;
 
-    <!-- =========================================
-         EN EL TIEMPO
-         ========================================= -->
+    padding: 45px;
 
-    <section
-        id="tiempo"
-        class="time-section"
-    >
+    border: 1px solid rgba(212, 175, 55, 0.25);
 
-        <div class="section-container reveal">
+    background: rgba(255, 255, 255, 0.03);
 
-            <div class="section-number">
-                04
-            </div>
+    box-shadow: var(--shadow-dark);
+}
 
-            <div class="section-label">
-                BLANCO ELITE™ EN EL TIEMPO
-            </div>
+.legacy-quote::before {
+    content: "“";
 
-            <h2>
-                Construimos hoy
-                lo que continuará mañana.
-            </h2>
+    position: absolute;
 
+    top: 8px;
+    left: 25px;
 
-            <div class="time-grid">
+    color: rgba(212, 175, 55, 0.25);
 
+    font-size: 5rem;
+    line-height: 1;
+}
 
-                <div class="time-card">
+.legacy-quote p {
+    position: relative;
+    z-index: 2;
 
-                    <span>
-                        01
-                    </span>
+    color: var(--white);
 
-                    <h3>
-                        HOY
-                    </h3>
+    font-size: 1.3rem;
+    font-weight: 600;
+}
 
-                    <p>
-                        Una Visión
-                    </p>
+.legacy-quote span {
+    color: var(--gold);
 
-                </div>
+    font-size: 0.75rem;
+    font-weight: 700;
 
+    letter-spacing: 1px;
+}
 
-                <div class="time-card">
 
-                    <span>
-                        02
-                    </span>
+/* =========================================
+   PROYECTOS
+   ========================================= */
 
-                    <h3>
-                        MAÑANA
-                    </h3>
+.projects {
+    background: var(--white);
+}
 
-                    <p>
-                        Empresas
-                    </p>
+.project-list {
+    display: grid;
 
-                </div>
+    grid-template-columns: repeat(2, 1fr);
 
+    gap: 20px;
+}
 
-                <div class="time-card">
+.project-item {
+    padding: 35px;
 
-                    <span>
-                        03
-                    </span>
+    border: 1px solid var(--border-light);
 
-                    <h3>
-                        FUTURO
-                    </h3>
+    background: var(--soft-white);
 
-                    <p>
-                        Patrimonio
-                    </p>
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
-                </div>
+.project-item:hover {
+    transform: translateY(-5px);
 
+    border-color: rgba(212, 175, 55, 0.45);
 
-                <div class="time-card">
+    box-shadow: var(--shadow);
+}
 
-                    <span>
-                        04
-                    </span>
+.project-item span {
+    display: block;
 
-                    <h3>
-                        GENERACIONES
-                    </h3>
+    margin-bottom: 15px;
 
-                    <p>
-                        Legado
-                    </p>
+    color: var(--gold);
 
-                </div>
+    font-size: 0.72rem;
+    font-weight: 800;
 
+    letter-spacing: 2px;
+}
 
-            </div>
+.project-item h3 {
+    margin-bottom: 10px;
+}
 
-        </div>
+.project-item p {
+    color: var(--dark-gray);
 
-    </section>
+    font-size: 0.9rem;
+}
 
 
+/* =========================================
+   CONTACTO
+   ========================================= */
 
-    <!-- =========================================
-         LEGADO
-         ========================================= -->
+.contact {
+    background: #eef0f4;
+}
 
-    <section
-        id="legado"
-        class="legacy-section"
-    >
+.contact-box {
+    display: grid;
 
-        <div class="section-container reveal">
+    grid-template-columns: 1fr auto;
 
-            <div class="section-number">
-                05
-            </div>
+    gap: 40px;
 
-            <div class="section-label">
-                LEGADO FAMILIAR
-            </div>
+    align-items: center;
 
-            <h2>
-                Más que empresas.
-                Una responsabilidad.
-            </h2>
+    padding: 60px;
 
-            <p>
+    background: var(--white);
 
-                Blanco Elite™ está pensado para crecer
-                junto con la familia.
+    border: 1px solid var(--border-light);
 
-            </p>
+    box-shadow: var(--shadow);
+}
 
-            <p>
+.contact-box p {
+    max-width: 650px;
 
-                Cada proyecto representa una oportunidad
-                para construir algo que pueda continuar
-                más allá de una sola generación.
+    color: var(--dark-gray);
+}
 
-            </p>
 
+/* =========================================
+   FOOTER
+   ========================================= */
 
-            <div class="legacy-quote">
+footer {
+    padding: 45px 0;
 
-                “Construimos hoy lo que
-                continuará mañana.”
+    background: var(--black);
 
-            </div>
+    color: var(--gray);
+}
 
-        </div>
+.footer-inner {
+    width: min(90%, var(--max-width));
+    margin: 0 auto;
 
-    </section>
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
+    gap: 25px;
+}
 
+.footer-brand {
+    color: var(--white);
 
-    <!-- =========================================
-         PROYECTOS
-         ========================================= -->
+    font-weight: 800;
+    letter-spacing: 2px;
+}
 
-    <section
-        id="proyectos"
-        class="projects-section"
-    >
+.footer-brand span {
+    color: var(--gold);
+}
 
-        <div class="section-container reveal">
+.footer-copy {
+    color: #727887;
 
-            <div class="section-number">
-                06
-            </div>
+    font-size: 0.78rem;
+}
 
-            <div class="section-label">
-                PROYECTOS
-            </div>
+.footer-line {
+    width: min(90%, var(--max-width));
+    height: 1px;
 
-            <h2>
-                El comienzo de
-                nuestro ecosistema.
-            </h2>
+    margin: 30px auto 0;
 
-            <p>
+    background: rgba(255, 255, 255, 0.08);
+}
 
-                Esta sección crecerá junto con Blanco Elite™.
-                Aquí presentaremos proyectos en desarrollo,
-                futuros negocios y nuevas oportunidades.
 
-            </p>
+/* =========================================
+   ANIMACIONES
+   ========================================= */
 
+@keyframes heroTitle {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 
-            <div class="project-status-grid">
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+@keyframes heroText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-                <div class="project-status-card">
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-                    <span>
-                        EN DESARROLLO
-                    </span>
 
-                    <h3>
-                        Proyectos actuales
-                    </h3>
+/* =========================================
+   TABLET
+   ========================================= */
 
-                    <p>
-                        Iniciativas que se encuentran
-                        en proceso de construcción.
-                    </p>
+@media (max-width: 950px) {
 
-                </div>
+    nav ul {
+        gap: 14px;
+    }
 
+    nav a {
+        font-size: 0.68rem;
+    }
 
-                <div class="project-status-card">
+    .business-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-                    <span>
-                        PRÓXIMAMENTE
-                    </span>
+    .timeline {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 45px 0;
+    }
 
-                    <h3>
-                        Nuevos negocios
-                    </h3>
+    .timeline::before {
+        display: none;
+    }
 
-                    <p>
-                        Ideas que serán desarrolladas
-                        en futuras etapas.
-                    </p>
+    .time-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-                </div>
+    .legacy-grid {
+        grid-template-columns: 1fr;
+    }
 
+}
 
-                <div class="project-status-card">
 
-                    <span>
-                        PLANIFICADO
-                    </span>
+/* =========================================
+   MÓVIL
+   ========================================= */
 
-                    <h3>
-                        Visión futura
-                    </h3>
+@media (max-width: 700px) {
 
-                    <p>
-                        Proyectos pensados para
-                        el crecimiento a largo plazo.
-                    </p>
+    header {
+        padding: 16px 0;
+    }
 
-                </div>
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
 
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
 
-            </div>
+    nav ul {
+        width: max-content;
+        justify-content: flex-start;
+        gap: 18px;
+    }
 
-        </div>
+    nav a {
+        font-size: 0.66rem;
+    }
 
-    </section>
+    .hero {
+        min-height: 100svh;
+    }
 
+    .hero-content {
+        padding-top: 130px;
+        padding-bottom: 70px;
+    }
 
+    .hero h1 {
+        font-size: clamp(3rem, 16vw, 5rem);
+        letter-spacing: -2px;
+    }
 
-    <!-- =========================================
-         CONTACTO
-         ========================================= -->
+    .section {
+        padding: 80px 0;
+    }
 
-    <section
-        id="contacto"
-        class="contact-section"
-    >
+    .section-header {
+        margin-bottom: 40px;
+    }
 
-        <div class="section-container reveal">
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
 
-            <div class="section-number">
-                07
-            </div>
+    .business-grid {
+        grid-template-columns: 1fr;
+    }
 
-            <div class="section-label">
-                CONTACTO
-            </div>
+    .business-card {
+        min-height: auto;
+    }
 
-            <h2>
-                El futuro comienza
-                con una conversación.
-            </h2>
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
 
-            <p>
+    .timeline-item {
+        text-align: left;
 
-                Blanco Elite™ continuará creciendo
-                y desarrollando nuevas oportunidades.
+        display: grid;
 
-            </p>
+        grid-template-columns: 64px 1fr;
 
+        column-gap: 20px;
 
-            <div class="contact-box">
+        align-items: start;
+    }
 
-                <p>
-                    Próximamente podrás comunicarte
-                    directamente con nuestro grupo empresarial.
-                </p>
+    .timeline-number {
+        grid-row: span 2;
 
-                <span>
-                    BLANCO ELITE™
-                </span>
+        margin: 0;
+    }
 
-            </div>
+    .timeline-item h3 {
+        margin-top: 5px;
+    }
 
-        </div>
+    .time-grid {
+        grid-template-columns: 1fr;
+    }
 
-    </section>
+    .project-list {
+        grid-template-columns: 1fr;
+    }
 
+    .contact-box {
+        grid-template-columns: 1fr;
 
+        padding: 35px 25px;
+    }
 
-    <!-- =========================================
-         FOOTER
-         ========================================= -->
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-    <footer>
+}
 
-        <div class="footer-content">
 
-            <div>
+/* =========================================
+   REDUCIR MOVIMIENTO
+   ========================================= */
 
-                <strong>
-                    BLANCO ELITE™
-                </strong>
+@media (prefers-reduced-motion: reduce) {
 
-                <p>
-                    Family Business Group
-                </p>
+    html {
+        scroll-behavior: auto;
+    }
 
-            </div>
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 
-
-            <div>
-
-                Una familia.
-                Una visión.
-                Un legado.
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            © 2026 Blanco Elite™.
-            Todos los derechos reservados.
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- =========================================
-         JAVASCRIPT
-         ========================================= -->
-
-    <script src="script.js"></script>
-
-
-</body>
-
-</html>
+}
