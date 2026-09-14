@@ -1,315 +1,261 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    const header = document.getElementById("site-header");
-    const nav = document.getElementById("main-nav");
-    const menuToggle = document.getElementById("menu-toggle");
-
-    const navLinks = document.querySelectorAll(".main-nav a");
-
-    const sections = document.querySelectorAll("main section[id]");
-
-    const revealElements = document.querySelectorAll(".reveal");
-
-    const businessCards =
-        document.querySelectorAll(".business-card");
+/* =========================================================
+   BLANCO ELITE™
+   SCRIPT.JS
+   Interactividad principal del sitio
+   ========================================================= */
 
 
-    /* =========================
-       HEADER SCROLL
-    ========================== */
+/* =========================
+   HEADER
+   ========================= */
 
-    const updateHeader = () => {
+const header = document.getElementById("site-header");
 
-        if (!header) return;
+function updateHeader() {
 
-        if (window.scrollY > 30) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
+    if (!header) return;
+
+    if (window.scrollY > 40) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+}
+
+window.addEventListener("scroll", updateHeader);
+
+updateHeader();
+
+
+/* =========================
+   ACTIVE NAVIGATION
+   ========================= */
+
+const navLinks = document.querySelectorAll(".main-nav a");
+
+const sections = document.querySelectorAll("main section[id]");
+
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (!entry.isIntersecting) return;
+
+            const currentId = entry.target.id;
+
+            navLinks.forEach((link) => {
+
+                const linkTarget =
+                    link.getAttribute("href");
+
+                if (linkTarget === `#${currentId}`) {
+
+                    link.classList.add("active");
+
+                } else {
+
+                    link.classList.remove("active");
+
+                }
+
+            });
+
+        });
+
+    },
+    {
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: 0
+    }
+);
+
+sections.forEach((section) => {
+
+    sectionObserver.observe(section);
+
+});
+
+
+/* =========================
+   SMOOTH NAVIGATION
+   ========================= */
+
+navLinks.forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+        const targetId =
+            link.getAttribute("href");
+
+        if (!targetId || !targetId.startsWith("#")) {
+            return;
         }
 
-    };
+        const target =
+            document.querySelector(targetId);
 
-    updateHeader();
+        if (!target) return;
 
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        { passive: true }
-    );
+        event.preventDefault();
 
+        const headerHeight =
+            header ? header.offsetHeight : 0;
 
-    /* =========================
-       MOBILE MENU
-    ========================== */
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            headerHeight -
+            10;
 
-    if (menuToggle && nav) {
+        window.scrollTo({
 
-        menuToggle.addEventListener("click", () => {
+            top: targetPosition,
 
-            nav.classList.toggle("open");
-
-            const isOpen =
-                nav.classList.contains("open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
+            behavior: "smooth"
 
         });
 
+    });
 
-        navLinks.forEach(link => {
+});
 
-            link.addEventListener("click", () => {
 
-                nav.classList.remove("open");
+/* =========================
+   SCROLL REVEAL
+   ========================= */
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const revealObserver =
+    new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
 
             });
 
-        });
-
-    }
-
-
-    /* =========================
-       ACTIVE NAVIGATION
-    ========================== */
-
-    const updateActiveNavigation = () => {
-
-        let currentSection = "";
-
-        const scrollPosition =
-            window.scrollY + 180;
-
-        sections.forEach(section => {
-
-            const sectionTop =
-                section.offsetTop;
-
-            const sectionHeight =
-                section.offsetHeight;
-
-            if (
-                scrollPosition >= sectionTop &&
-                scrollPosition < sectionTop + sectionHeight
-            ) {
-                currentSection =
-                    section.getAttribute("id");
-            }
-
-        });
-
-
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            const target =
-                link.getAttribute("href");
-
-            if (
-                target === `#${currentSection}`
-            ) {
-                link.classList.add("active");
-            }
-
-        });
-
-    };
-
-    updateActiveNavigation();
-
-    window.addEventListener(
-        "scroll",
-        updateActiveNavigation,
-        { passive: true }
+        },
+        {
+            threshold: 0.12
+        }
     );
 
+revealElements.forEach((element) => {
 
-    /* =========================
-       SMOOTH NAVIGATION
-    ========================== */
+    revealObserver.observe(element);
 
-    navLinks.forEach(link => {
+});
 
-        link.addEventListener("click", event => {
 
-            const target =
-                link.getAttribute("href");
+/* =========================
+   BUSINESS CARDS
+   ========================= */
 
-            if (
-                !target ||
-                !target.startsWith("#")
-            ) {
-                return;
-            }
+const businessCards =
+    document.querySelectorAll(".business-card");
 
-            const element =
-                document.querySelector(target);
+businessCards.forEach((card) => {
 
-            if (!element) {
-                return;
-            }
+    card.addEventListener("click", (event) => {
+
+        /*
+         * Si el usuario está haciendo clic en el enlace
+         * "Explorar área", dejamos que el navegador
+         * abra la página correspondiente.
+         */
+
+        if (event.target.closest(".business-button")) {
+            return;
+        }
+
+
+        const wasSelected =
+            card.classList.contains("selected");
+
+
+        businessCards.forEach((otherCard) => {
+
+            otherCard.classList.remove("selected");
+
+        });
+
+
+        if (!wasSelected) {
+
+            card.classList.add("selected");
+
+        }
+
+    });
+
+});
+
+
+/* =========================
+   KEYBOARD ACCESSIBILITY
+   ========================= */
+
+businessCards.forEach((card) => {
+
+    card.setAttribute("tabindex", "0");
+
+    card.addEventListener("keydown", (event) => {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
 
             event.preventDefault();
 
-            const headerHeight =
-                header
-                    ? header.offsetHeight
-                    : 0;
+            card.click();
 
-            const targetPosition =
-                element.offsetTop - headerHeight + 1;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth"
-            });
-
-        });
+        }
 
     });
 
+});
 
-    /* =========================
-       REVEAL ON SCROLL
-    ========================== */
 
-    if ("IntersectionObserver" in window) {
+/* =========================
+   CONTACT BUTTON
+   ========================= */
 
-        const observer =
-            new IntersectionObserver(
-                entries => {
+const contactButton =
+    document.querySelector(
+        'a[href^="mailto:"]'
+    );
 
-                    entries.forEach(entry => {
+if (contactButton) {
 
-                        if (entry.isIntersecting) {
+    contactButton.addEventListener(
+        "click",
+        () => {
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
-                }
+            console.log(
+                "Blanco Elite™ — Contacto"
             );
 
+        }
+    );
 
-        revealElements.forEach(element => {
-            observer.observe(element);
-        });
-
-    } else {
-
-        revealElements.forEach(element => {
-            element.classList.add("visible");
-        });
-
-    }
+}
 
 
-    /* =========================
-       BUSINESS CARD SELECTION
-    ========================== */
+/* =========================
+   INITIAL PAGE STATE
+   ========================= */
 
-    businessCards.forEach(card => {
+window.addEventListener("load", () => {
 
-        card.addEventListener("click", event => {
-
-            /*
-             * Si se hace clic en un enlace,
-             * dejamos que el navegador navegue
-             * normalmente.
-             */
-
-            if (
-                event.target.closest(
-                    ".business-button"
-                )
-            ) {
-                return;
-            }
-
-
-            businessCards.forEach(otherCard => {
-
-                if (otherCard !== card) {
-
-                    otherCard.classList.remove(
-                        "selected"
-                    );
-
-                }
-
-            });
-
-
-            card.classList.toggle("selected");
-
-        });
-
-    });
-
-
-    /* =========================
-       CONTACT BUTTON
-    ========================== */
-
-    const contactLinks =
-        document.querySelectorAll(
-            'a[href="#contacto"]'
-        );
-
-
-    contactLinks.forEach(link => {
-
-        link.addEventListener("click", event => {
-
-            const contactSection =
-                document.getElementById(
-                    "contacto"
-                );
-
-            if (!contactSection) {
-                return;
-            }
-
-            event.preventDefault();
-
-            const headerHeight =
-                header
-                    ? header.offsetHeight
-                    : 0;
-
-            window.scrollTo({
-
-                top:
-                    contactSection.offsetTop -
-                    headerHeight,
-
-                behavior: "smooth"
-
-            });
-
-        });
-
-    });
+    document.body.classList.add("page-loaded");
 
 });
