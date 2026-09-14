@@ -1,6 +1,6 @@
 /* =========================================================
    BLANCO ELITE™
-   ETAPA 2.6 — TIMELINE
+   ETAPA 2.7 — LA FIRMA
    ========================================================= */
 
 
@@ -10,19 +10,20 @@
 
 :root {
 
-    --black: #080808;
-    --black-soft: #111111;
+    --black: #070707;
+    --black-soft: #101010;
 
     --white: #ffffff;
     --white-soft: #f5f5f2;
 
     --gold: #c9a227;
-    --gold-light: #e2c766;
+    --gold-light: #e5cc72;
 
     --blue: #071a33;
-    --blue-light: #0d2c52;
+    --blue-light: #10335d;
 
-    --gray: #b7b7b7;
+    --gray: #666666;
+    --gray-light: #b8b8b8;
 
     --border:
         rgba(201, 162, 39, 0.35);
@@ -100,18 +101,20 @@ header {
     padding: 20px 6%;
 
     background:
-        rgba(8, 8, 8, 0.94);
+        rgba(7, 7, 7, 0.94);
 
     border-bottom:
         1px solid
-        rgba(201, 162, 39, 0.25);
+        rgba(201, 162, 39, 0.22);
 
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(18px);
 
 }
 
 
 .brand {
+
+    position: relative;
 
     color: var(--white);
 
@@ -130,22 +133,28 @@ header {
 
     display: block;
 
-    width: 35px;
+    width: 38px;
 
     height: 2px;
 
-    background: var(--gold);
-
     margin-top: 5px;
 
-    transition: width 0.35s ease;
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
+
+    transition:
+        width 0.4s ease;
 
 }
 
 
 .brand:hover::after {
 
-    width: 60px;
+    width: 75px;
 
 }
 
@@ -177,7 +186,8 @@ nav a {
 
     padding: 5px 0;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 
 }
 
@@ -198,7 +208,8 @@ nav a::after {
 
     background: var(--gold);
 
-    transition: width 0.3s ease;
+    transition:
+        width 0.3s ease;
 
 }
 
@@ -233,23 +244,29 @@ nav a:hover::after {
 
     text-align: center;
 
-    padding: 100px 6%;
+    padding: 110px 6%;
 
     color: var(--white);
 
     background:
 
         radial-gradient(
-            circle at 50% 40%,
-            rgba(13, 44, 82, 0.9),
-            transparent 45%
+            circle at 50% 35%,
+            rgba(16, 51, 93, 0.95),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(201, 162, 39, 0.08),
+            transparent 35%
         ),
 
         linear-gradient(
             135deg,
-            #050505,
+            #030303,
             #071a33 55%,
-            #050505
+            #040404
         );
 
     position: relative;
@@ -259,27 +276,35 @@ nav a:hover::after {
 }
 
 
+/* Large atmospheric ring */
+
 .hero::before {
 
     content: "";
 
     position: absolute;
 
-    width: 500px;
+    width: 600px;
 
-    height: 500px;
+    height: 600px;
 
     border-radius: 50%;
 
     border:
         1px solid
-        rgba(201, 162, 39, 0.15);
+        rgba(201, 162, 39, 0.13);
+
+    box-shadow:
+        0 0 100px
+        rgba(201, 162, 39, 0.04);
 
     animation:
-        heroPulse 8s ease-in-out infinite;
+        heroPulse 9s ease-in-out infinite;
 
 }
 
+
+/* Fine gold horizon */
 
 .hero::after {
 
@@ -289,9 +314,9 @@ nav a:hover::after {
 
     bottom: 0;
 
-    left: 10%;
+    left: 8%;
 
-    right: 10%;
+    right: 8%;
 
     height: 1px;
 
@@ -308,7 +333,7 @@ nav a:hover::after {
 
 .hero-content {
 
-    max-width: 900px;
+    max-width: 950px;
 
     position: relative;
 
@@ -320,60 +345,72 @@ nav a:hover::after {
 }
 
 
+/* Small institutional label */
+
 .eyebrow {
 
     color: var(--gold-light);
 
-    font-size: 0.78rem;
+    font-size: 0.75rem;
 
     font-weight: 700;
 
-    letter-spacing: 3px;
+    letter-spacing: 3.5px;
 
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 
 }
 
+
+/* Main company name */
 
 .hero h1 {
 
     font-size:
-        clamp(3rem, 8vw, 7rem);
+        clamp(3.2rem, 9vw, 7.5rem);
 
-    line-height: 1;
+    line-height: 0.95;
 
-    letter-spacing: 8px;
+    letter-spacing: 9px;
 
     font-weight: 900;
 
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 35px
+        rgba(255, 255, 255, 0.04);
 
 }
 
 
+/* Institutional phrase */
+
 .hero h2 {
 
-    max-width: 750px;
+    max-width: 800px;
 
-    margin: 0 auto 25px;
+    margin:
+        0 auto 25px;
 
     font-size:
-        clamp(1.3rem, 3vw, 2.2rem);
+        clamp(1.35rem, 3vw, 2.25rem);
 
     line-height: 1.3;
 
-    font-weight: 500;
+    font-weight: 400;
 
 }
 
 
 .hero p {
 
-    max-width: 650px;
+    max-width: 670px;
 
-    margin: 0 auto 35px;
+    margin:
+        0 auto 38px;
 
-    color: #d5d5d5;
+    color: #d4d4d4;
 
     font-size: 1.05rem;
 
@@ -386,9 +423,14 @@ nav a:hover::after {
 
 .button {
 
+    position: relative;
+
     display: inline-block;
 
-    padding: 15px 30px;
+    overflow: hidden;
+
+    padding:
+        16px 32px;
 
     color: var(--black);
 
@@ -396,7 +438,7 @@ nav a:hover::after {
 
     text-decoration: none;
 
-    font-size: 0.8rem;
+    font-size: 0.78rem;
 
     font-weight: 800;
 
@@ -414,6 +456,44 @@ nav a:hover::after {
 }
 
 
+.button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 80%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.45),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.6s ease;
+
+}
+
+
+.button:hover::before {
+
+    left: 140%;
+
+}
+
+
 .button:hover {
 
     background: var(--gold-light);
@@ -422,8 +502,8 @@ nav a:hover::after {
         translateY(-4px);
 
     box-shadow:
-        0 10px 30px
-        rgba(201, 162, 39, 0.25);
+        0 15px 35px
+        rgba(201, 162, 39, 0.22);
 
 }
 
@@ -435,7 +515,7 @@ nav a:hover::after {
 section {
 
     padding:
-        110px 7%;
+        115px 7%;
 
 }
 
@@ -449,7 +529,12 @@ section {
 
 .businesses {
 
-    background: var(--white-soft);
+    background:
+        linear-gradient(
+            180deg,
+            #f5f5f2,
+            #eeeeeb
+        );
 
 }
 
@@ -460,7 +545,7 @@ section {
         linear-gradient(
             180deg,
             #ffffff,
-            #f5f5f2
+            #f4f4f1
         );
 
 }
@@ -468,7 +553,18 @@ section {
 
 .legacy {
 
-    background: var(--black);
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(16, 51, 93, 0.35),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #070707,
+            #0b1421
+        );
 
     color: var(--white);
 
@@ -488,34 +584,60 @@ section {
 
 
 /* =========================================================
-   TEXT
+   SECTION HEADINGS
    ========================================================= */
 
 .section-label {
 
     color: var(--gold);
 
-    font-size: 0.72rem;
+    font-size: 0.7rem;
 
     font-weight: 800;
 
-    letter-spacing: 2.5px;
+    letter-spacing: 2.8px;
 
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 
 }
 
 
 .section-title {
 
-    font-size:
-        clamp(2rem, 5vw, 3.6rem);
+    position: relative;
 
-    line-height: 1.1;
+    display: inline-block;
+
+    font-size:
+        clamp(2rem, 5vw, 3.7rem);
+
+    line-height: 1.08;
 
     margin-bottom: 30px;
 
     font-weight: 800;
+
+}
+
+
+.section-title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 2px;
+
+    margin-top: 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
 
 }
 
@@ -553,7 +675,7 @@ section {
 
     gap: 25px;
 
-    margin-top: 55px;
+    margin-top: 60px;
 
 }
 
@@ -569,7 +691,7 @@ section {
 
     position: relative;
 
-    padding: 35px;
+    padding: 38px;
 
     background: var(--white);
 
@@ -580,12 +702,14 @@ section {
     overflow: hidden;
 
     transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease,
-        border-color 0.4s ease;
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
 
 }
 
+
+/* Gold accent */
 
 .business-card::before,
 .project-card::before,
@@ -600,14 +724,48 @@ section {
 
     left: 0;
 
-    width: 4px;
+    width: 3px;
 
     height: 0;
 
-    background: var(--gold);
+    background:
+        linear-gradient(
+            180deg,
+            var(--gold-light),
+            var(--gold)
+        );
 
     transition:
-        height 0.4s ease;
+        height 0.45s ease;
+
+}
+
+
+/* Soft radial glow */
+
+.business-card::after,
+.project-card::after,
+.contact-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    right: -100px;
+
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(201, 162, 39, 0.06);
+
+    transition:
+        transform 0.5s ease;
 
 }
 
@@ -624,8 +782,8 @@ section {
         var(--border);
 
     box-shadow:
-        0 20px 50px
-        rgba(0, 0, 0, 0.11);
+        0 25px 60px
+        rgba(0, 0, 0, 0.12);
 
 }
 
@@ -640,18 +798,28 @@ section {
 }
 
 
+.business-card:hover::after,
+.project-card:hover::after,
+.contact-card:hover::after {
+
+    transform:
+        scale(1.7);
+
+}
+
+
 .business-card h3,
 .project-card h3,
 .contact-card h3,
 .legacy-card h3 {
 
-    font-size: 1.45rem;
-
-    margin-bottom: 15px;
-
     position: relative;
 
     z-index: 2;
+
+    font-size: 1.45rem;
+
+    margin-bottom: 15px;
 
 }
 
@@ -661,22 +829,26 @@ section {
 .contact-card p,
 .legacy-card p {
 
-    color: #666666;
-
-    font-size: 0.95rem;
-
     position: relative;
 
     z-index: 2;
+
+    color: #666666;
+
+    font-size: 0.95rem;
 
 }
 
 
 .business-number {
 
+    position: relative;
+
+    z-index: 2;
+
     color: var(--gold);
 
-    font-size: 0.7rem;
+    font-size: 0.68rem;
 
     font-weight: 800;
 
@@ -687,17 +859,21 @@ section {
 }
 
 
+/* =========================================================
+   DARK LEGACY CARDS
+   ========================================================= */
+
 .legacy-card {
 
     background:
         linear-gradient(
             145deg,
             #111111,
-            #0b1625
+            #0b1828
         );
 
     border-color:
-        rgba(255, 255, 255, 0.12);
+        rgba(255,255,255,0.11);
 
 }
 
@@ -724,9 +900,10 @@ section {
 
     position: relative;
 
-    max-width: 1100px;
+    max-width: 1120px;
 
-    margin: 75px auto 20px;
+    margin:
+        80px auto 20px;
 
     display: grid;
 
@@ -744,20 +921,22 @@ section {
 
     position: absolute;
 
-    top: 42px;
+    top: 48px;
 
     left: 8%;
 
     right: 8%;
 
-    height: 2px;
+    height: 1px;
 
     background:
         linear-gradient(
             90deg,
+            transparent,
             var(--gold),
             var(--gold-light),
-            var(--gold)
+            var(--gold),
+            transparent
         );
 
     z-index: 0;
@@ -780,13 +959,13 @@ section {
 
     color: var(--gold);
 
-    font-size: 0.72rem;
+    font-size: 0.68rem;
 
     font-weight: 800;
 
     letter-spacing: 2px;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 
 }
 
@@ -797,12 +976,12 @@ section {
 
     height: 18px;
 
-    margin: 0 auto 30px;
+    margin:
+        0 auto 32px;
 
     border-radius: 50%;
 
-    background:
-        var(--white);
+    background: var(--white);
 
     border:
         3px solid
@@ -810,7 +989,7 @@ section {
 
     box-shadow:
         0 0 0 5px
-        rgba(201, 162, 39, 0.12);
+        rgba(201,162,39,0.1);
 
     transition:
         transform 0.35s ease,
@@ -823,14 +1002,14 @@ section {
 .vision-step:hover .vision-dot {
 
     transform:
-        scale(1.35);
+        scale(1.4);
 
     background:
         var(--gold);
 
     box-shadow:
-        0 0 0 8px
-        rgba(201, 162, 39, 0.12);
+        0 0 0 9px
+        rgba(201,162,39,0.1);
 
 }
 
@@ -867,27 +1046,58 @@ section {
 
 .dark-panel {
 
-    margin-top: 60px;
+    position: relative;
 
-    padding: 45px;
+    margin-top: 65px;
+
+    padding: 48px;
 
     background:
         linear-gradient(
             135deg,
-            var(--black),
-            var(--blue)
+            #050505,
+            #071a33
         );
 
     color: var(--white);
 
     border:
         1px solid
-        rgba(201, 162, 39, 0.25);
+        rgba(201,162,39,0.25);
+
+    overflow: hidden;
+
+}
+
+
+.dark-panel::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    right: -140px;
+
+    top: -140px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(201,162,39,0.08);
 
 }
 
 
 .dark-panel p {
+
+    position: relative;
+
+    z-index: 2;
 
     max-width: 850px;
 
@@ -906,14 +1116,18 @@ section {
 
     margin-top: 60px;
 
-    padding: 35px;
+    padding: 38px;
 
     border-left:
         3px solid
         var(--gold);
 
     background:
-        var(--white);
+        rgba(255,255,255,0.75);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.03);
 
 }
 
@@ -931,14 +1145,17 @@ section {
 
 .legacy-quote {
 
-    margin-top: 75px;
+    position: relative;
 
-    padding: 45px;
+    margin-top: 80px;
+
+    padding:
+        50px 30px;
 
     text-align: center;
 
     font-size:
-        clamp(1.5rem, 4vw, 2.5rem);
+        clamp(1.5rem, 4vw, 2.6rem);
 
     line-height: 1.5;
 
@@ -946,11 +1163,15 @@ section {
 
     border-top:
         1px solid
-        rgba(201, 162, 39, 0.35);
+        rgba(201,162,39,0.35);
 
     border-bottom:
         1px solid
-        rgba(201, 162, 39, 0.35);
+        rgba(201,162,39,0.35);
+
+    text-shadow:
+        0 0 25px
+        rgba(201,162,39,0.08);
 
 }
 
@@ -961,19 +1182,22 @@ section {
 
 footer {
 
-    padding: 35px 7%;
+    padding:
+        38px 7%;
 
     text-align: center;
 
-    background: #050505;
+    background: #040404;
 
-    color: #888888;
+    color: #858585;
 
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+
+    letter-spacing: 0.3px;
 
     border-top:
         1px solid
-        rgba(201, 162, 39, 0.2);
+        rgba(201,162,39,0.2);
 
 }
 
@@ -989,7 +1213,7 @@ footer {
         opacity: 0;
 
         transform:
-            translateY(30px);
+            translateY(35px);
 
     }
 
@@ -1050,7 +1274,7 @@ footer {
         grid-template-columns:
             repeat(2, 1fr);
 
-        gap: 45px;
+        gap: 50px;
 
     }
 
@@ -1130,7 +1354,15 @@ footer {
     section {
 
         padding:
-            80px 20px;
+            85px 20px;
+
+    }
+
+
+    .section-title {
+
+        font-size:
+            clamp(2rem, 10vw, 3rem);
 
     }
 
@@ -1142,7 +1374,7 @@ footer {
 
         gap: 18px;
 
-        margin-top: 40px;
+        margin-top: 45px;
 
     }
 
@@ -1152,18 +1384,19 @@ footer {
     .contact-card,
     .legacy-card {
 
-        padding: 28px;
+        padding: 30px;
 
     }
 
+
+    /* Mobile timeline */
 
     .vision-timeline {
 
         display: block;
 
-        margin-top: 55px;
-
-        margin-left: 8px;
+        margin:
+            60px 0 20px 8px;
 
     }
 
@@ -1180,7 +1413,7 @@ footer {
 
         right: auto;
 
-        width: 2px;
+        width: 1px;
 
         height: auto;
 
@@ -1206,7 +1439,7 @@ footer {
 
         text-align: left;
 
-        margin-bottom: 45px;
+        margin-bottom: 50px;
 
     }
 
@@ -1217,7 +1450,7 @@ footer {
 
         margin: 0;
 
-        padding-top: 2px;
+        padding-top: 1px;
 
     }
 
@@ -1251,14 +1484,15 @@ footer {
 
     .dark-panel {
 
-        padding: 30px;
+        padding: 32px;
 
     }
 
 
     .legacy-quote {
 
-        padding: 30px 20px;
+        padding:
+            35px 20px;
 
     }
 
@@ -1282,7 +1516,7 @@ footer {
 
     .hero h1 {
 
-        font-size: 2.7rem;
+        font-size: 2.65rem;
 
         letter-spacing: 3px;
 
@@ -1307,7 +1541,16 @@ footer {
 
     nav a {
 
-        font-size: 0.68rem;
+        font-size: 0.67rem;
+
+    }
+
+
+    .eyebrow {
+
+        font-size: 0.65rem;
+
+        letter-spacing: 2.2px;
 
     }
 
