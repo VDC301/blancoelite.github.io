@@ -2054,11 +2054,13 @@ a {
 
 
     /*
-       En móvil ocultamos la línea original porque
-       estaba limitada al ancho visible del teléfono.
-
-       Ahora cada etapa forma parte del recorrido
+       IMPORTANTE:
+       En móvil la línea ya no pertenece al viewport
        completo del timeline.
+
+       Se ocultan los pseudo-elementos originales y
+       cada etapa genera su propio segmento de línea.
+       Así la línea acompaña a las 5 etapas completas.
     */
 
     .timeline::before,
@@ -2068,7 +2070,7 @@ a {
 
 
     /* =====================================================
-       LÍNEA ENTRE LAS ETAPAS
+       SEGMENTOS DE LÍNEA ENTRE ETAPAS
        ===================================================== */
 
     .timeline-item::after {
@@ -2089,7 +2091,7 @@ a {
                 90deg,
                 var(--gold-dark) 0%,
                 var(--gold-light) 34%,
-                rgba(255, 255, 255, 0.98) 50%,
+                rgba(255, 255, 255, 0.95) 50%,
                 var(--gold-light) 66%,
                 var(--gold-dark) 100%
             );
@@ -2100,8 +2102,8 @@ a {
 
         filter:
             drop-shadow(
-                0 0 6px
-                rgba(228, 201, 107, 0.50)
+                0 0 5px
+                rgba(228, 201, 107, 0.45)
             );
 
         pointer-events: none;
@@ -2117,8 +2119,9 @@ a {
 
 
     /*
-       Los segmentos se activan de forma escalonada
-       para crear el recorrido visual completo.
+       Cada segmento comienza un poco después del anterior.
+       Esto crea el efecto visual de recorrido:
+       01 → 02 → 03 → 04 → 05
     */
 
     .timeline-item:nth-child(1)::after {
@@ -2139,7 +2142,8 @@ a {
 
 
     /*
-       El punto 05 es el final del recorrido.
+       La última etapa no necesita segmento porque
+       es el punto final del recorrido.
     */
 
     .timeline-item:nth-child(5)::after {
@@ -2165,10 +2169,6 @@ a {
         }
     }
 
-
-    /* =====================================================
-       ETAPAS
-       ===================================================== */
 
     .timeline-item {
         flex:
@@ -2314,9 +2314,16 @@ a {
         padding-right: 14px;
     }
 
+
+    /*
+       El segmento ahora coincide exactamente con
+       la distancia entre los centros de las etapas.
+    */
+
     .timeline-item::after {
         width: 220px;
     }
+
 
     .timeline-item::before {
         top: 28px;
